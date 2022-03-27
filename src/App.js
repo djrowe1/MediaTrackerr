@@ -1,24 +1,43 @@
-import logo from './logo.svg';
-import './App.css';
+import * as React from "react";
+import { Link } from "react-router-dom";
+import { Container } from "@mui/material";
+import { Button } from "@mui/material";
+import "./App.css";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <div className="main">
+        <Container>
+          <rows>
+            <div className="intro-text">
+              <div>
+                <h1 className="title">Welcome to MediaTrackerr</h1>
+                <p className="subtitle">
+                  We'll Help You Keep Track of All of Your Books.
+                </p>
+              </div>
+              <div className="buttonContainer">
+                <Link to="/Login">
+                  <Button size="lg" className="landingbutton">
+                    Login
+                  </Button>
+                </Link>
+                <Link to="/Register">
+                  <Button
+                    variant="outline-primary"
+                    size="lg"
+                    className="landingbutton"
+                  >
+                    Signup
+                  </Button>
+                </Link>
+              </div>
+            </div>
+          </rows>
+        </Container>
+      </div>
+    </>
   );
 }
 

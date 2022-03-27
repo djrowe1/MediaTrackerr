@@ -1,0 +1,7 @@
+.container-height {
+  height: 90vh;
+  flex-direction: column;
+}
+body {
+  background-color: rgb(139, 209, 230);
+}

@@ -3,7 +3,7 @@ import { useState } from "react";
 import "./App.css";
 
 const Login = () => {
-  const [email, setemail] = useState("");
+  const [username, setusername] = useState("");
   const [password, setpassword] = useState("");
 
   return (
@@ -14,15 +14,15 @@ const Login = () => {
           <form>
             <fieldset>
               <div className="form-group">
-                <label htmlFor="exampleInputEmail1">Email address: </label>
+                <label htmlFor="exampleInputEmail1">User Name: </label>
                 <input
-                  value={email}
-                  onChange={(e) => setemail(e.target.value)}
-                  type="email"
+                  value={username}
+                  onChange={(e) => setusername(e.target.value)}
+                  type="text"
                   className="form-control"
-                  id="exampleInputEmail1"
+                  id="username"
                   aria-describedby="emailHelp"
-                  placeholder="Enter email"
+                  placeholder="Enter User Name"
                 />
               </div>
               <div className="form-group">

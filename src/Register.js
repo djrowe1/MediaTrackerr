@@ -11,13 +11,39 @@ const Register = () => {
   const [email, setemail] = useState("");
   const [password, setpassword] = useState("");
 
+  function handleSubmit() {
+    const formData = {
+      first: first_name,
+      last: last_name,
+      user: username,
+      email1: email,
+      pass: password,
+    };
+    fetch("/Register", {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json",
+      },
+      body: JSON.stringify(formData),
+    })
+      .then((res) => res.json())
+      .then((data) => console.log(data))
+      .catch((error) => {
+        if (error.response) {
+          alert("Error encountered... Please Try Again");
+        } else {
+          alert("Success!!! User Profile Created!");
+        }
+      });
+  }
+
   return (
     <div className="row container-height">
       <div className="col-lg-6 col-md-6 m-auto">
         <div className="container">
           <h1 className="text-center">MediaTrackerr - Register</h1>
 
-          <form>
+          <form onSubmit={handleSubmit}>
             <fieldset>
               <div className="form-group">
                 <label htmlFor="firstName">First Name: </label>
@@ -62,7 +88,7 @@ const Register = () => {
                   onChange={(e) => setemail(e.target.value)}
                   type="email"
                   className="form-control"
-                  id="exampleInputEmail1"
+                  id="email"
                   aria-describedby="emailHelp"
                   placeholder="Enter email"
                 />
@@ -74,7 +100,7 @@ const Register = () => {
                   onChange={(e) => setpassword(e.target.value)}
                   type="password"
                   className="form-control"
-                  id="exampleInputPassword1"
+                  id="password"
                   placeholder="Password"
                 />
               </div>

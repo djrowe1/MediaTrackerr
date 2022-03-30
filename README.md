@@ -4,6 +4,10 @@ Create your own user account or use our existing login account; username: test  
 
 If viewing the main 'media view' page without being logged-in is desired then in the (LibView.js) file, comment out the short-hand 'if' statement on line 27 just before the '?' mark. This will allow you to view that particular browser page without being logged-in.
 
+Known Issue: Error messages in the backend don't always propagate to the browser... So if a user makes a mistake in the register or login process then the action will simply fail with a reset page and no messages to indicate the reasons.
+
+Known Issue: Sometimes during the login process, the authorization token is not stored in localStorage and the user must resubmit info to get logged in. Usually doesn't happen more than two consecutive times in a row... so you might think you mistyped your password but there's an issue. Error is very intermittent... need to investigate issue more.
+
 - Dave
 
 

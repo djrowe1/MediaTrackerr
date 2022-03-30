@@ -1,9 +1,8 @@
 3/30/22 - User login functionality has been implemented. At this point, a user can register on our app and then log-in. So far the main 'media view' page is the only page that is restricted to authorized users... if you try to view that page without being logged-in then our program will automatically redirect to the log-in page. I have left this feature off of the other pages for now that so testing and development will be easier. Also, the 'log-in' page redirects to the 'view media' page automatically if you are logged-in.
 
-Create your own user account or use:
-Existing login account: username: test   password: test
+Create your own user account or use our existing login account; username: test   password: test
 
-If viewing the main 'media view' page without being logged-in is desired then comment out the short-hand 'if' statement on line 27 just before the '?' mark. This will allow you to view that particular browser page without being logged-in.
+If viewing the main 'media view' page without being logged-in is desired then in the (LibView.js) file, comment out the short-hand 'if' statement on line 27 just before the '?' mark. This will allow you to view that particular browser page without being logged-in.
 
 - Dave
 

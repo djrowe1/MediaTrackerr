@@ -1,17 +1,52 @@
 import * as React from "react";
 import { useState } from "react";
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import "./App.css";
 
 const Login = () => {
+  const navigate = useNavigate();
   const [username, setusername] = useState("");
   const [password, setpassword] = useState("");
+
+  const user = {
+    user: username,
+    pass: password,
+  };
+
+  function handleSubmit() {
+    //send login info to server
+    fetch("/Login", {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json",
+      },
+      body: JSON.stringify(user),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        localStorage.setItem("token", data.token);
+        //console.log(data.token);
+      });
+  }
+
+  //send user to library view if logged-in
+  useEffect(() => {
+    fetch("/isUserAuth", {
+      headers: {
+        "x-access-token": localStorage.getItem("token"),
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => (data.isLoggedIn ? navigate("/LibView") : null));
+  }, [navigate]);
 
   return (
     <div className="row container-height">
       <div className="col-lg-6 col-md-6 m-auto">
         <div className="container">
           <h1 className="text-center">Login</h1>
-          <form>
+          <form onSubmit={handleSubmit}>
             <fieldset>
               <div className="form-group">
                 <label htmlFor="exampleInputEmail1">User Name: </label>

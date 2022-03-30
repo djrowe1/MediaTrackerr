@@ -1,10 +1,13 @@
 import axios from "axios";
 import * as React from "react";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import "./Register.css";
 
 const Register = () => {
+  const navigate = useNavigate();
   const [first_name, setfirst_name] = useState("");
   const [last_name, setlast_name] = useState("");
   const [username, setuser_name] = useState("");
@@ -33,9 +36,22 @@ const Register = () => {
           alert("Error encountered... Please Try Again");
         } else {
           alert("Success!!! User Profile Created!");
+          navigate("/Login");
         }
-      });
+      }, navigate("/Login"));
   }
+  //send user to library view if logged-in
+  useEffect(() => {
+    fetch("/isUserAuth", {
+      headers: {
+        "x-access-token": localStorage.getItem("token"),
+      },
+    })
+      .then((res) => res.json())
+      .then(
+        (data) => data.isLoggedIn //? navigate("/LibView") : navigate("/Login")
+      );
+  }, [navigate]);
 
   return (
     <div className="row container-height">

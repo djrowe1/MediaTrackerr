@@ -9,7 +9,7 @@ const User = require("../models/userModel");
 const bodyParser = require("body-parser");
 //const books = require("./data/books");
 const dotenv = require("dotenv");
-
+require("dotenv").config();
 //connect to data base via db file
 const connectDB = require("../config/db.js");
 const bcrypt = require("bcryptjs/dist/bcrypt");
@@ -28,8 +28,35 @@ connectDB();
 
 //receive json data format from user
 app.use(express.json());
+//verify user web token
+function verifyJWT(req, res, next) {
+  // removes 'Bearer` from token
+  const token = req.headers["x-access-token"]?.split(" ")[1];
 
-//API endpoint for serving data from backend to frontend
+  if (token !== null) {
+    jwt.verify(token, process.env.PASSPORTSECRET, (err, decoded) => {
+      if (err)
+        return res.json({
+          isLoggedIn: false,
+          message: "Failed To Authenticate",
+        });
+      req.user = decoded;
+      req.user.id = decoded.id;
+      req.user.username = decoded.username;
+
+      next();
+    });
+  } else {
+    res.json({ message: "Incorrect Token Given", isLoggedIn: false });
+  }
+}
+
+//access authorization for current user
+app.get("/isUserAuth", verifyJWT, (req, res) => {
+  return res.json({ isLoggedIn: true, username: req.user.username });
+});
+
+//API endpoints for serving data from backend to frontend
 
 //listen for post data on this user register route
 app.post("/Register", async (req, res) => {
@@ -59,40 +86,38 @@ app.post("/Register", async (req, res) => {
 });
 
 //listen for post data on this user login route
-app.post("/Login", (req, res) => {
+app.post("/Login", async (req, res) => {
   console.log(req.body);
   const username = req.body.user;
   const password = req.body.pass;
-  User.findOne({ username: req.body.user }).then((dbUser) => {
+  await User.findOne({ username: req.body.user }).then((dbUser) => {
     if (!dbUser) {
       return res.json({
         messge: "Invalid Username or Password",
       });
     }
-    bcrypt.compare(req.body.pass, dbUser.pass).then((isCorrect) => {
-      if (isCorrect) {
-        const payLoad = {
-          id: dbUser._id,
-          username: dbUser.username,
-        };
-        jwt.sign(
-          payLoad,
-          process.env.JWT_SECRET,
-          { expiresIn: 86400 },
-          (err, token) => {
-            if (err) return res.json({ message: err });
-            return res.json({
-              message: "Success",
-              token: "Bearer " + token,
-            });
-          }
-        );
-      } else {
-        return res.json({
-          message: "Invalid Username or Password",
-        });
-      }
-    });
+    if (password === dbUser.password) {
+      const payLoad = {
+        id: dbUser._id,
+        username: dbUser.username,
+      };
+      jwt.sign(
+        payLoad,
+        process.env.PASSPORTSECRET,
+        { expiresIn: 86400 },
+        (err, token) => {
+          if (err) return res.json({ message: err });
+          return res.json({
+            message: "Success",
+            token: "Bearer " + token,
+          });
+        }
+      );
+    } else {
+      return res.json({
+        message: "Invalid Username or Password",
+      });
+    }
   });
 });
 

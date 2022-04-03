@@ -48,8 +48,8 @@ const Register = () => {
       },
     })
       .then((res) => res.json())
-      .then(
-        (data) => data.isLoggedIn ? navigate("/LibView") : navigate("/Login")
+      .then((data) =>
+        data.isLoggedIn ? navigate("/LibView") : navigate("/Register")
       );
   }, [navigate]);
 

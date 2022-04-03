@@ -14,7 +14,7 @@ import reportWebVitals from "./reportWebVitals";
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
-      <nav className="navi">
+      <nav className="navi" >
         <Link to="/">Home</Link> | <Link to="/Login">Login</Link> |{" "}
         <Link to="/Register">Register</Link> |{" "}
         <Link to="/LibView">Library View Test</Link> |{" "}

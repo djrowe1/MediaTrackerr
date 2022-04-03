@@ -28,6 +28,43 @@ const userSchema = mongoose.Schema(
       required: true,
       unique: false,
     },
+    media: [{
+        isbn: {
+          type: Array,
+          required: true,
+          unique: true,
+        },
+        title: {
+          type: String,
+          required: true,
+          unique: false,
+        },
+        authors: {
+          type: Array,
+          required: true,
+        },
+        language: {
+          type: String,
+          required: true,
+          unique: false,
+        },
+        pages: {
+          type: Number,
+          required: false,
+        },
+        published: {
+          type: String,
+          required: false,
+        },
+        publisher: {
+          type: String,
+          required: false,
+        },
+        imageLinks: {
+          type: Array,
+          required: false,
+        },
+    }]
   },
   {
     timestamps: true,

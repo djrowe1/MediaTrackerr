@@ -87,6 +87,7 @@ app.post("/Register", async (req, res) => {
 
 //listen for post data on this user login route
 app.post("/Login", async (req, res) => {
+  console.log("Request from Frontend");
   console.log(req.body);
   const username = req.body.user;
   const password = req.body.pass;
@@ -124,6 +125,51 @@ app.post("/Login", async (req, res) => {
 app.get("/", (req, res) => {
   res.send("Book API is running");
 });
+
+/*Book Routes*/
+app.post("/addBook", async (req, res) => {
+  const book = req.body.book;
+  const user = req.body.user;
+
+  //check if book in library
+  const mediaExists = await User.findOne({username: user, media: {$elemMatch: { isbn: book.isbn} }});
+  if (mediaExists) {
+    res.json({ message: book.title + " already in library!" });
+  } else {
+    //add the book to library
+    let doc = await User.findOneAndUpdate({username: user}, {$push: {media: book}});
+    //console.log(user + " Number of books: " + doc.media.length);
+    //console.log(book.title);
+    await doc.save();
+    res.json({ message: book.title + " added to library!" });
+  }
+});
+
+app.get("/myLib", async (req, res) => {
+  try{
+    //require token
+    const token = req.headers["x-access-token"]?.split(" ")[1];
+    if(!token) return res.json(false);
+    //verify token
+    const verified = jwt.verify(token, process.env.PASSPORTSECRET);
+    if(!verified) return res.json(false);
+    //get user
+    const user = await User.findById(verified.id);
+    if(!user) return res.json(false);
+    //return books
+    const books = user.media;
+    console.log("Number of books: " + books.length);
+    res.json(books);
+  }
+  catch(err){
+    res.status(500).json({error: err.message});
+  }
+
+});
+
+
+
+
 //assigned port from env file
 const PORT = process.env.PORT || 5000;
 

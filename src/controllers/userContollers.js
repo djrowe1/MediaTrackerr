@@ -7,12 +7,12 @@ const User = require("../models/userModel");
 const registerUser = asyncHandler(async (req, res) => {
   //use req variable to ask user for data
   //use res variable to provide user with data
-  //const { first_name, last_name, username, email, password } = req.body;
-  const first_name = "Dave",
-    last_name = "Rowe",
-    username = "djrowe",
-    email = "djrowe1@yahoo.com",
-    password = "abc123";
+  const { first_name, last_name, username, email, password } = req.body;
+  // const first_name = "Dave",
+  //   last_name = "Rowe",
+  //   username = "djrowe",
+  //   email = "djrowe1@yahoo.com",
+  //   password = "abc123";
   //check if user already exists
   const userExists = await User.findOne({ email });
   //generate error if so

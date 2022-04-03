@@ -1,8 +1,25 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { Navigate, useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./AddMedia.css";
+const User = require("./models/userModel");
 
 function AddMedia() {
+  const navigate = useNavigate();
+  const [username, setUsername] = useState(null);
+
+  useEffect(() => {
+    fetch("/isUserAuth", {
+      headers: {
+        "x-access-token": localStorage.getItem("token"),
+      },
+    })
+      .then((res) => res.json())
+      .then((data) =>
+        data.isLoggedIn ? setUsername(data.username) : navigate("/Login")
+      );
+  });
+
   //variable to handle API request
   const [book, setBook] = useState("");
   const [result, setResult] = useState([]);
@@ -31,7 +48,7 @@ function AddMedia() {
           "&maxResults=40"
       )
       .then((data) => {
-        console.log(data.data.items);
+        //console.log(data.data.items);
         //store book data into Result state variable
         setResult(data.data.items);
       })
@@ -45,21 +62,48 @@ function AddMedia() {
     /*Handles when user selects book */
   }
   const handleClick = (info) => {
-    alert("SEND ITEM TO DATABASE - Title: " + info);
+    const bookData = {user: username, book:{
+      isbn: info.industryIdentifiers,
+      title: info.title,
+      authors: info.authors,
+      language: info.language,
+      pages: info.pageCount,
+      published: info.publishedDate,
+      publisher: info.publisher,
+      imageLinks: info.imageLinks
+    }};
+    fetch("/addBook", {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json",
+        "x-access-token": localStorage.getItem("token")
+      },
+      body: JSON.stringify(bookData),
+    })
+      .then((res) => res.json())
+      .then((data) => console.log(data))
+      .catch((error) => {
+        if (error.response) {
+          alert("Error encountered... Please Try Again");
+        }
+      });
+    //alert("SEND ITEM TO DATABASE\n" + JSON.stringify(bookData));
+    alert(info.title + " sent to list!");
+    //console.log(username);
   };
 
   {
     /*Display results from API results */
   }
   return (
-    <body>
+    <div>
       <div>
         <h1>MediaTrackerr - AddMedia</h1>
       </div>
 
-      <div class="container">
+      <div className="container">
         <form onSubmit={handleSubmit}>
-          <div class="form-group">
+          <div className="form-group">
             <input
               type="text"
               onChange={handleChange}
@@ -76,16 +120,17 @@ function AddMedia() {
       </div>
 
       {/*use arrow function with on click so that handleClick function is not automatically called*/}
-      <div class="setup">
+      <div className="setup">
         {result.map((book) => (
           <img
-            src={book.volumeInfo.imageLinks.smallThumbnail}
+            key={book.id}
+            src={book.volumeInfo.imageLinks ? book.volumeInfo.imageLinks.smallThumbnail : ""}
             alt={book.title}
-            onClick={() => handleClick(book.volumeInfo.title)}
+            onClick={() => handleClick(book.volumeInfo)}
           />
         ))}
       </div>
-    </body>
+    </div>
   );
 }
 

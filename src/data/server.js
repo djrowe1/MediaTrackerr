@@ -102,12 +102,15 @@ app.post("/Login", async (req, res) => {
         id: dbUser._id,
         username: dbUser.username,
       };
+      console.log("WE ARE HERE!");
       jwt.sign(
         payLoad,
         process.env.PASSPORTSECRET,
         { expiresIn: 86400 },
         (err, token) => {
-          if (err) return res.json({ message: err });
+          if (err) {
+            return res.json({ message: err });
+          }
           return res.json({
             message: "Success",
             token: "Bearer " + token,
@@ -132,12 +135,18 @@ app.post("/addBook", async (req, res) => {
   const user = req.body.user;
 
   //check if book in library
-  const mediaExists = await User.findOne({username: user, media: {$elemMatch: { isbn: book.isbn} }});
+  const mediaExists = await User.findOne({
+    username: user,
+    media: { $elemMatch: { isbn: book.isbn } },
+  });
   if (mediaExists) {
     res.json({ message: book.title + " already in library!" });
   } else {
     //add the book to library
-    let doc = await User.findOneAndUpdate({username: user}, {$push: {media: book}});
+    let doc = await User.findOneAndUpdate(
+      { username: user },
+      { $push: { media: book } }
+    );
     //console.log(user + " Number of books: " + doc.media.length);
     //console.log(book.title);
     await doc.save();
@@ -146,29 +155,24 @@ app.post("/addBook", async (req, res) => {
 });
 
 app.get("/myLib", async (req, res) => {
-  try{
+  try {
     //require token
     const token = req.headers["x-access-token"]?.split(" ")[1];
-    if(!token) return res.json(false);
+    if (!token) return res.json(false);
     //verify token
     const verified = jwt.verify(token, process.env.PASSPORTSECRET);
-    if(!verified) return res.json(false);
+    if (!verified) return res.json(false);
     //get user
     const user = await User.findById(verified.id);
-    if(!user) return res.json(false);
+    if (!user) return res.json(false);
     //return books
     const books = user.media;
     console.log("Number of books: " + books.length);
     res.json(books);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
   }
-  catch(err){
-    res.status(500).json({error: err.message});
-  }
-
 });
-
-
-
 
 //assigned port from env file
 const PORT = process.env.PORT || 5000;

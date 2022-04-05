@@ -17,9 +17,9 @@ const Home = () => {
   const [username, setUsername] = useState(null);
   const [books, setBooks] = useState([]);
   //logout user
-  async function logout() {
+  function logout() {
     localStorage.removeItem("token");
-    await navigate("/Login");
+    navigate("/Login");
   }
 
   useEffect(() => {

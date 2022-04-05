@@ -4,6 +4,8 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import TextField from '@mui/material/TextField';
+import { Button } from "@mui/material";
 import "./Register.css";
 
 const Register = () => {
@@ -62,69 +64,74 @@ const Register = () => {
           <h1 className="text-center">MediaTrackerr - Register</h1>
 
           <form onSubmit={handleSubmit}>
-            <fieldset>
-              <div className="form-group">
+            <fieldset className="center-blue">
+              <div className="spacing-bottom form-group">
                 <label htmlFor="firstName">First Name: </label>
-                <input
+                <TextField
+                  id="firstName"
                   value={first_name}
                   onChange={(e) => setfirst_name(e.target.value)}
                   type="text"
-                  className="form-control"
-                  id="firstName"
+                  className="white form-control"
                   aria-describedby="emailHelp"
                   placeholder="Enter First Name"
+                  size="small"
                 />
               </div>
-              <div className="form-group">
+              <div className="spacing-bottom form-group">
                 <label htmlFor="lastName">Last Name: </label>
-                <input
+                <TextField
                   value={last_name}
                   onChange={(e) => setlast_name(e.target.value)}
                   type="text"
-                  className="form-control"
+                  className="white form-control"
                   id="lastName"
                   aria-describedby="emailHelp"
                   placeholder="Enter Last Name"
+                  size="small"
                 />
               </div>
-              <div className="form-group">
+              <div className="spacing-bottom form-group">
                 <label htmlFor="username">User Name: </label>
-                <input
+                <TextField 
                   value={username}
                   onChange={(e) => setuser_name(e.target.value)}
                   type="text"
-                  className="form-control"
+                  className="white form-control"
                   id="username"
                   aria-describedby="emailHelp"
                   placeholder="Enter User Name"
+                  size="small"
                 />
               </div>
-              <div className="form-group">
-                <label htmlFor="exampleInputEmail1">Email Addr: </label>
-                <input
+              <div className="spacing-bottom form-group">
+                <label className="spacing-right" htmlFor="exampleInputEmail1">Email: </label>
+                <TextField
                   value={email}
                   onChange={(e) => setemail(e.target.value)}
                   type="email"
-                  className="form-control"
+                  className="white form-control"
                   id="email"
                   aria-describedby="emailHelp"
-                  placeholder="Enter email"
+                  placeholder="Enter Email"
+                  size="small"
                 />
               </div>
-              <div className="form-group">
+              <div className="spacing-bottom form-group">
                 <label htmlFor="exampleInputPassword1">Password: </label>
-                <input
+                <TextField
                   value={password}
                   onChange={(e) => setpassword(e.target.value)}
                   type="password"
-                  className="form-control"
+                  className="white form-control"
                   id="password"
                   placeholder="Password"
+                  size="small"
                 />
               </div>
-              <button type="submit" className="btn btn-info m-auto">
+              <Button type="submit" variant="contained" className="btn btn-info m-auto">
                 Register
-              </button>
+              </Button>
             </fieldset>
           </form>
         </div>

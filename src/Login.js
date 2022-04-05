@@ -2,6 +2,9 @@ import * as React from "react";
 import { useState } from "react";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import TextField from '@mui/material/TextField';
+import { Button } from "@mui/material";
+import Box from '@mui/material/Box';
 import "./App.css";
 
 const Login = () => {
@@ -58,33 +61,37 @@ const Login = () => {
         <div className="container">
           <h1 className="text-center">Login</h1>
           <form onSubmit={handleSubmit}>
-            <fieldset>
-              <div className="form-group">
+            <fieldset className="center-blue">
+              <div className="spacing-bottom form-group">
                 <label htmlFor="exampleInputEmail1">User Name: </label>
-                <input
+                <TextField
                   value={username}
                   onChange={(e) => setusername(e.target.value)}
                   type="text"
-                  className="form-control"
+                  className="white form-control"
                   id="username"
                   aria-describedby="emailHelp"
                   placeholder="Enter User Name"
+                  size="small"
                 />
               </div>
-              <div className="form-group">
+              <div className="spacing-bottom form-group">
                 <label htmlFor="exampleInputPassword1">Password: </label>
-                <input
+                <TextField
                   value={password}
                   onChange={(e) => setpassword(e.target.value)}
                   type="password"
-                  className="form-control"
+                  className="white form-control"
                   id="exampleInputPassword1"
                   placeholder="Password"
+                  size="small"
                 />
               </div>
-              <button type="submit" className="btn btn-info m-auto">
+              <Box>
+              <Button type="submit" variant="contained" className="btn btn-info m-auto">
                 Login
-              </button>
+              </Button>
+              </Box>
             </fieldset>
           </form>
         </div>

@@ -1,3 +1,9 @@
+4/04/22 - Our login-in bug issue has been resolved... :) The user's token was not always being stored in the browser's local storage because 'unwanted' events were taking place during the "onSubmit" function execution. Implementing the e.preventDefault() function in our log-in code resolved the issue. See this resource for a full explanation of how preventDefault() works with our code: https://sebhastian.com/react-preventdefault/
+
+- Dave
+
+4/02/22 - Daniel pushed new code that enhances our app's functionality such as the ability to store book data with a user and populating our library view list with the user's book inventory.
+
 3/30/22 - User login functionality has been implemented. At this point, a user can register on our app and then log-in. So far the main 'media view' page is the only page that is restricted to authorized users... if you try to view that page without being logged-in then our program will automatically redirect to the log-in page. I have left this feature off of the other pages for now that so testing and development will be easier. Also, the 'log-in' page redirects to the 'view media' page automatically if you are logged-in.
 
 Create your own user account or use our existing login account; username: test   password: test

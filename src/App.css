@@ -9,11 +9,21 @@
   width: 100%;
   text-align: center;
 }
-.main {
+
+.main-welcome {
   min-height: 93vh;
   display: flex;
   align-items: center;
-  background-image: url("./background.jpg");
+  background-image: url("./rainbowbg.png");
+  background-position: center;
+  background-size: cover;
+}
+
+.main {
+  min-height: 93vh;
+  display: flex;
+  align-items: flex-start;
+  background-image: url("./rainbowbg.png");
   background-position: center;
   background-size: cover;
 }
@@ -74,7 +84,7 @@
 }
 
 .App {
-  background-color: #eb8f26;
+  background-color: #AEC6CF;
 }
 
 .App-link {

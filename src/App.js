@@ -7,7 +7,7 @@ import "./App.css";
 function App() {
   return (
     <>
-      <div className="main">
+      <div className="main-welcome">
         <Container>
           <rows>
             <div className="intro-text">
@@ -19,17 +19,13 @@ function App() {
               </div>
               <div className="buttonContainer">
                 <Link to="/Login">
-                  <Button size="lg" className="landingbutton">
+                  <Button variant="contained" className="landingbutton">
                     Login
                   </Button>
                 </Link>
                 <Link to="/Register">
-                  <Button
-                    variant="outline-primary"
-                    size="lg"
-                    className="landingbutton"
-                  >
-                    Signup
+                  <Button variant="contained" className="landingbutton">
+                    Register
                   </Button>
                 </Link>
               </div>

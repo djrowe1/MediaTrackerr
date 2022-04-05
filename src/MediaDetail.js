@@ -5,8 +5,9 @@ function MediaDetail() {
   return (
     <>
       <body>
+        <div className="main">
         <h1>MediaTrackerr - Media Detail Page</h1>
-        <div></div>
+        </div>
       </body>
     </>
   );

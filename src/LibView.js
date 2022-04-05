@@ -11,6 +11,8 @@ import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
 import { FixedSizeList } from "react-window";
 import Button1 from "./Button1.js";
+import "./LibView.css";
+
 
 const Home = () => {
   const navigate = useNavigate();
@@ -49,7 +51,7 @@ const Home = () => {
   }, [navigate]);
 
   return (
-    <div>
+    <div className="main">
       {/* Using grid to position elements */}
       <Grid
         container
@@ -58,7 +60,7 @@ const Home = () => {
         justify="center"
         style={{ minHeight: "100vh" }}
       >
-        <div>
+        <div className="paddedtitle">
           <h1>MediaTrackerr - Library View Page </h1>
           <p></p>
           <div className="userInfo">
@@ -69,10 +71,10 @@ const Home = () => {
             </button>
           </div>
         </div>
-
+        <h2>Media Book List</h2>
+        <div className="App">
         <Grid item style={{ border: "0.2px solid grey" }}>
-          <div className="App">
-            <h2>Media Book List</h2>
+            
             {/*<ListView />*/}
             {books.map((book) => (
               <ListItem key={book.title} component="div" disablePadding>
@@ -95,8 +97,8 @@ const Home = () => {
                 </ListItemButton>
               </ListItem>
             ))}
-          </div>
         </Grid>
+        </div>
         <Grid item>
           <p></p>
           <Button1 />

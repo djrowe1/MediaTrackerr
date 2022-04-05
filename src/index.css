@@ -4,6 +4,14 @@
   left: 35%;
 }
 
+.navigation {
+
+  text-align: center;
+  top: 2%;
+  left: 49%;
+  transform: translate(-50%, -50%);
+  position: absolute;
+}
 .userInfo {
   position: absolute !important;
   display: inline-flex;

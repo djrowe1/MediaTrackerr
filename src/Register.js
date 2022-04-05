@@ -54,6 +54,7 @@ const Register = () => {
   }, [navigate]);
 
   return (
+    <div className="main">
     <div className="row container-height">
       <div className="col-lg-6 col-md-6 m-auto">
         <div className="container">
@@ -127,6 +128,7 @@ const Register = () => {
           </form>
         </div>
       </div>
+    </div>
     </div>
   );
 };

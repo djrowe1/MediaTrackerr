@@ -96,7 +96,7 @@ function AddMedia() {
     /*Display results from API results */
   }
   return (
-    <div>
+    <div className="main">
       <div>
         <h1>MediaTrackerr - AddMedia</h1>
       </div>

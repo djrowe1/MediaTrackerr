@@ -1,3 +1,8 @@
 .setup {
     
   }
+
+.paddedtitle{
+    padding-top: 20px;
+    align-items: start
+}

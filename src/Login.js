@@ -14,20 +14,29 @@ const Login = () => {
     pass: password,
   };
 
-  function handleSubmit() {
+  async function handleSubmit(e) {
+    e.preventDefault();
     //send login info to server
-    fetch("/Login", {
+    console.log("WE ARE HERE Part1000!");
+    const res = await fetch("/Login", {
       method: "POST",
       headers: {
         "Content-type": "application/json",
       },
       body: JSON.stringify(user),
-    })
-      .then((res) => res.json())
+    });
+    console.log("WE ARE HERE PartMiddle!");
+    const data = await res.json();
+    localStorage.setItem("token", data.token);
+
+    /*.then((res) => res.json())
       .then((data) => {
-        localStorage.setItem("token", data.token);
+        window.localStorage.setItem("token", data.token);
+        //console.log("WE ARE HERE Part100!");
         //console.log(data.token);
-      });
+      });*/
+    console.log("WE ARE HERE Part2000!");
+    navigate("/LibView");
   }
 
   //send user to library view if logged-in

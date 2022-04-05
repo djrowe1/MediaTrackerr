@@ -6,7 +6,9 @@ function MediaDetail() {
     <>
       <body>
         <div className="main">
-        <h1>MediaTrackerr - Media Detail Page</h1>
+          <div className="paddedtitle">
+          <h1>MediaTrackerr - Media Detail Page</h1>
+          </div>
         </div>
       </body>
     </>

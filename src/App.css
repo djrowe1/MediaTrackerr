@@ -11,7 +11,7 @@
 }
 
 .main-welcome {
-  min-height: 93vh;
+  min-height: 100vh;
   display: flex;
   align-items: center;
   background-image: url("./rainbowbg.png");
@@ -20,7 +20,7 @@
 }
 
 .main {
-  min-height: 93vh;
+  min-height: 100vh;
   display: flex;
   align-items: flex-start;
   background-image: url("./rainbowbg.png");
@@ -98,4 +98,11 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.paddedtitle{
+  padding-top: 20px;
+  padding-left: 25px;
+
+  align-items: start
 }

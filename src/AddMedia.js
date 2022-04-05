@@ -97,10 +97,10 @@ function AddMedia() {
   }
   return (
     <div className="main">
+      <div className="paddedtitle">
       <div>
         <h1>MediaTrackerr - AddMedia</h1>
       </div>
-
       <div className="container">
         <form onSubmit={handleSubmit}>
           <div className="form-group">
@@ -129,6 +129,7 @@ function AddMedia() {
             onClick={() => handleClick(book.volumeInfo)}
           />
         ))}
+      </div>
       </div>
     </div>
   );

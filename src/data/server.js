@@ -154,6 +154,23 @@ app.post("/addBook", async (req, res) => {
   }
 });
 
+app.post("/removeBook", async (req, res) => {
+  const book = req.body.book;
+  const user = req.body.user;
+  //const bookData = {username: user, book:{book}};
+    //remove the book from the library
+    let doc = await User.findOneAndUpdate(
+      { username: user },
+      { $pull: { media: book } }
+    );
+    //console.log(user + " Number of books: " + doc.media.length);
+    //console.log(book.title);
+    
+    await doc.save();
+    res.json({ message: book.title + " removed from library!" });
+  
+});
+
 app.get("/myLib", async (req, res) => {
   try {
     //require token

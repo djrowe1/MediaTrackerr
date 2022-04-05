@@ -12,6 +12,7 @@ import ListItemText from "@mui/material/ListItemText";
 import { FixedSizeList } from "react-window";
 import Button1 from "./Button1.js";
 
+
 const Home = () => {
   const navigate = useNavigate();
   const [username, setUsername] = useState(null);
@@ -47,6 +48,54 @@ const Home = () => {
         }
       });
   }, [navigate]);
+
+  const handleClick = (info) => {
+    const bookData = {user: username, book:{
+      isbn: info.industryIdentifiers,
+      title: info.title,
+      authors: info.authors,
+      language: info.language,
+      pages: info.pageCount,
+      published: info.publishedDate,
+      publisher: info.publisher,
+      imageLinks: info.imageLinks
+    }};
+    fetch("/removeBook", {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json",
+        "x-access-token": localStorage.getItem("token")
+      },
+      body: JSON.stringify(bookData),
+    })
+      .then((res) => res.json())
+      .then((data) => console.log(data))
+      .catch((error) => {
+        if (error.response) {
+          alert("Error encountered... Please Try Again");
+        }
+      });
+    //alert("SEND ITEM TO DATABASE\n" + JSON.stringify(bookData));
+    alert(info.title + " deleted");
+    //console.log(username);
+
+    fetch("/removeBook", {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json",
+        "x-access-token": localStorage.getItem("token")
+      },
+      body: JSON.stringify(bookData),
+    })
+      .then((res) => res.json())
+      .then((data) => console.log(data))
+      .catch((error) => {
+        if (error.response) {
+          alert("Error encountered... Please Try Again");
+        }
+      });
+      
+  };
 
   return (
     <div>
@@ -89,8 +138,15 @@ const Home = () => {
                   <ListItemText
                     primary={`${book.title}`}
                     onClick={() => {
+                      handleClick(book)
                       alert(`Detail view for ${book.title}`);
                     }}
+                  />
+                </ListItemButton>
+                <ListItemButton>
+                  <ListItemText
+                    primary={`Delete`}
+                    onClick={() => handleClick(book)}
                   />
                 </ListItemButton>
               </ListItem>

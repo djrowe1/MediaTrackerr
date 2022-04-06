@@ -172,7 +172,7 @@ app.post("/removeBook", async (req, res) => {
       username: user,
     });
     const books = newlist.media;
-    console.log("Number of books: " + books.length);
+    //console.log("Number of books: " + books.length);
     res.json(books);
     //res.json({ message: book.title + " removed from library!" });
   
@@ -191,7 +191,7 @@ app.get("/myLib", async (req, res) => {
     if (!user) return res.json(false);
     //return books
     const books = user.media;
-    console.log("Number of books: " + books.length);
+    //console.log("Number of books: " + books.length);
     res.json(books);
   } catch (err) {
     res.status(500).json({ error: err.message });

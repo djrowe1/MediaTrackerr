@@ -19,11 +19,23 @@ const Home = () => {
   const navigate = useNavigate();
   const [username, setUsername] = useState(null);
   const [books, setBooks] = useState([]);
+  const [myBooks, setMyBooks] = useState([]);
+
   //logout user
   function logout() {
     localStorage.removeItem("token");
     navigate("/Login");
   }
+
+  function searchBooks(f){
+    if(f.length > 0){
+      const search = myBooks.filter(w => w.title.toLowerCase().includes(f.toLowerCase()));
+      setBooks(search);
+    }
+    else{
+      setBooks(myBooks);
+    }
+  };
 
   useEffect(() => {
     fetch("/isUserAuth", {
@@ -42,7 +54,10 @@ const Home = () => {
       },
     })
       .then((res) => res.json())
-      .then((data) => setBooks(data))
+      .then((data) => {
+        setBooks(data);
+        setMyBooks(data);
+      })
       .catch((error) => {
         if (error.response) {
           alert("Error encountered... Please Try Again");
@@ -77,8 +92,7 @@ const Home = () => {
           alert("Error encountered... Please Try Again");
         }
       });
-    //alert("SEND ITEM TO DATABASE\n" + JSON.stringify(bookData));
-    alert(info.title + " deleted");
+    //alert(info.title + " deleted");
     //console.log(username);      
   };
 
@@ -104,7 +118,8 @@ const Home = () => {
         </div>
         <h2>Media Book List</h2>
         <div className="App">
-        <Grid item style={{ border: "0.2px solid grey" }}>
+          <input style={{"text-align":"center"}} placeholder="filter..." name="filter" onKeyUp={e => searchBooks(e.target.value)} />
+        <Grid item style={{ border: "0.2px solid grey"}}>
             
             {/*<ListView />*/}
             {books.map((book) => (

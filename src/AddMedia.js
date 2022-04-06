@@ -81,14 +81,14 @@ function AddMedia() {
       body: JSON.stringify(bookData),
     })
       .then((res) => res.json())
-      .then((data) => console.log(data))
       .catch((error) => {
         if (error.response) {
           alert("Error encountered... Please Try Again");
         }
       });
     //alert("SEND ITEM TO DATABASE\n" + JSON.stringify(bookData));
-    alert(info.title + " sent to list!");
+    //alert(info.title + " sent to list!");
+    navigate("/Login")
     //console.log(username);
   };
 

@@ -1,3 +1,5 @@
+4/05/22 - Emily pushed new code with the delete button functionality for each of the media for each user that allows the user to remove media from their database. 
+
 4/04/22 - Our login-in bug issue has been resolved... :) The user's token was not always being stored in the browser's local storage because 'unwanted' events were taking place during the "onSubmit" function execution. Implementing the e.preventDefault() function in our log-in code resolved the issue. See this resource for a full explanation of how preventDefault() works with our code: https://sebhastian.com/react-preventdefault/
 
 - Dave

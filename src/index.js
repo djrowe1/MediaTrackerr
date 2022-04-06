@@ -42,7 +42,7 @@ ReactDOM.render(
         spacing={2}
       >
         <Item><Link to="/">Home</Link></Item>
-        <Item><Link to="/Login">Login</Link></Item>
+        <Item><Link to="/Login">Media</Link></Item>
         <Item><Link to="/Register">Register</Link></Item>
         <Item><Link to="/AddMedia">Add Media</Link></Item>
         <Item><Link to="/MediaDetail">Media Detail</Link></Item>

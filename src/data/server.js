@@ -167,7 +167,14 @@ app.post("/removeBook", async (req, res) => {
     //console.log(book.title);
     
     await doc.save();
-    res.json({ message: book.title + " removed from library!" });
+    
+    let newlist = await User.findOne({
+      username: user,
+    });
+    const books = newlist.media;
+    console.log("Number of books: " + books.length);
+    res.json(books);
+    //res.json({ message: book.title + " removed from library!" });
   
 });
 

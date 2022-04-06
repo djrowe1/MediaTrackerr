@@ -11,6 +11,7 @@ import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
 import { FixedSizeList } from "react-window";
 import Button1 from "./Button1.js";
+import Button from '@mui/material/Button';
 import "./LibView.css";
 
 
@@ -70,7 +71,7 @@ const Home = () => {
       body: JSON.stringify(bookData),
     })
       .then((res) => res.json())
-      .then((data) => console.log(data))
+      .then((data) => setBooks(data))
       .catch((error) => {
         if (error.response) {
           alert("Error encountered... Please Try Again");
@@ -92,7 +93,6 @@ const Home = () => {
         style={{ minHeight: "100vh" }}
       >
         <div className="paddedtitle">
-          <h1>MediaTrackerr - Library View Page </h1>
           <p></p>
           <div className="userInfo">
             <h2>Welcome: {JSON.stringify(username)}</h2>
@@ -108,8 +108,8 @@ const Home = () => {
             
             {/*<ListView />*/}
             {books.map((book) => (
-              <ListItem key={book.title} component="div" disablePadding>
-                <ListItemIcon align="center">
+              <ListItem key={book.title} component="div">
+                <ListItemIcon>
                   {
                     <img
                       src={book.imageLinks[0].smallThumbnail}
@@ -126,12 +126,8 @@ const Home = () => {
                     }}
                   />
                 </ListItemButton>
-                <ListItemButton>
-                  <ListItemText
-                    primary={`Delete`}
-                    onClick={() => handleClick(book)}
-                  />
-                </ListItemButton>
+                <Button variant="contained" color="error" size="small" onClick={() => handleClick(book)}>Delete
+                </Button>
               </ListItem>
             ))}
         </Grid>

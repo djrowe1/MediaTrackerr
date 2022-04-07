@@ -13,13 +13,26 @@ import { FixedSizeList } from "react-window";
 import Button1 from "./Button1.js";
 import Button from '@mui/material/Button';
 import "./LibView.css";
-
+import TextField from '@mui/material/TextField';
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
+import DialogTitle from '@mui/material/DialogTitle';
 
 const Home = () => {
   const navigate = useNavigate();
   const [username, setUsername] = useState(null);
   const [books, setBooks] = useState([]);
   const [myBooks, setMyBooks] = useState([]);
+  const [currentBook, setCurrentBook] = useState({isbn: [],
+    title: "",
+    authors: [],
+    language: "",
+    pages: "",
+    published: "",
+    publisher: "",
+    imageLinks: ""});
 
   //logout user
   function logout() {
@@ -36,6 +49,18 @@ const Home = () => {
       setBooks(myBooks);
     }
   };
+
+  const [open, setOpen] = React.useState(false);
+
+  const handleClickOpen = (b) => {
+    setCurrentBook(b);
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
 
   useEffect(() => {
     fetch("/isUserAuth", {
@@ -109,16 +134,15 @@ const Home = () => {
         <div className="paddedtitle">
           <p></p>
           <div className="userInfo">
-            <h2>Welcome: {JSON.stringify(username)}</h2>
-            <p> - </p>
-            <button>
+            {/*<h2>Welcome: {JSON.stringify(username)}</h2>*/}
+            <Button variant="contained">
               <div onClick={logout}>Logout</div>
-            </button>
+            </Button>
           </div>
         </div>
         <h2>Media Book List</h2>
         <div className="App">
-          <input style={{"text-align":"center"}} placeholder="filter..." name="filter" onKeyUp={e => searchBooks(e.target.value)} />
+          <input style={{"textAlign":"center"}} placeholder="filter..." name="filter" onKeyUp={e => searchBooks(e.target.value)} />
         <Grid item style={{ border: "0.2px solid grey"}}>
             
             {/*<ListView />*/}
@@ -137,7 +161,7 @@ const Home = () => {
                   <ListItemText
                     primary={`${book.title}`}
                     onClick={() => {
-                      alert(`Detail view for ${book.title}`);
+                      handleClickOpen(book);
                     }}
                   />
                 </ListItemButton>
@@ -155,6 +179,51 @@ const Home = () => {
           <p></p>
         </Grid>
       </Grid>
+      <div>
+
+      {/*media detail dialog*/}
+      <Dialog open={open} onClose={handleClose}>
+        <DialogTitle>{currentBook.title}</DialogTitle>
+          <DialogContent>
+            {currentBook.isbn.map((n) => (
+              <ListItem key={n.identifier} component="div">
+                  <ListItemText
+                    primary={`${n.type}: ${n.identifier}`}
+                  />
+              </ListItem>
+            ))}
+            {currentBook.authors.map((a) => (
+              <ListItem key={a} component="div">
+                  <ListItemText
+                    primary={`Author: ${a}`}
+                  />
+              </ListItem>
+            ))}
+
+            <ListItem key={currentBook.published} component="div">
+                <ListItemText
+                  primary={`Published: ${currentBook.published}`}
+                />
+            </ListItem>
+
+            <ListItem key={currentBook.pages} component="div">
+                <ListItemText
+                  primary={`Pages: ${currentBook.pages}`}
+                />
+            </ListItem>
+
+            <ListItem key={currentBook.publisher} component="div">
+                <ListItemText
+                  primary={`Publisher: ${currentBook.publisher}`}
+                />
+            </ListItem>
+
+          </DialogContent>
+        <DialogActions>
+          <Button onClick={handleClose}>OK</Button>
+        </DialogActions>
+      </Dialog>
+    </div>
     </div>
   );
 };

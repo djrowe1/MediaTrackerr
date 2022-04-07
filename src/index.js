@@ -45,7 +45,7 @@ ReactDOM.render(
         <Item><Link to="/Login">Media</Link></Item>
         <Item><Link to="/Register">Register</Link></Item>
         <Item><Link to="/AddMedia">Add Media</Link></Item>
-        <Item><Link to="/MediaDetail">Media Detail</Link></Item>
+        {/*<Item><Link to="/MediaDetail">Media Detail</Link></Item>*/}
 
       </Stack>
       </div>
@@ -55,7 +55,7 @@ ReactDOM.render(
         <Route path="/Register" element={<Register />} />
         <Route path="/LibView" element={<LibView />} />
         <Route path="/AddMedia" element={<AddMedia />} />
-        <Route path="/MediaDetail" element={<MediaDetail />} />
+        {/*<Route path="/MediaDetail" element={<MediaDetail />} />*/}
       </Routes>
     </BrowserRouter>
   </React.StrictMode>,

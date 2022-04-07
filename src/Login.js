@@ -17,7 +17,7 @@ const Login = () => {
   async function handleSubmit(e) {
     e.preventDefault();
     //send login info to server
-    console.log("WE ARE HERE Part1000!");
+    //console.log("WE ARE HERE Part1000!");
     const res = await fetch("/Login", {
       method: "POST",
       headers: {
@@ -25,7 +25,7 @@ const Login = () => {
       },
       body: JSON.stringify(user),
     });
-    console.log("WE ARE HERE PartMiddle!");
+    //console.log("WE ARE HERE PartMiddle!");
     const data = await res.json();
     localStorage.setItem("token", data.token);
 
@@ -35,7 +35,7 @@ const Login = () => {
         //console.log("WE ARE HERE Part100!");
         //console.log(data.token);
       });*/
-    console.log("WE ARE HERE Part2000!");
+    //console.log("WE ARE HERE Part2000!");
     navigate("/LibView");
   }
 

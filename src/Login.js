@@ -80,7 +80,7 @@ const Login = () => {
     <Grid paddingTop={0} align='center'>
       <div className="main-library" align='center' align-items='inline'>
       <div className="flex">
-      <Paper sx={{ width: 300, color: 'white'}} className="landingimage" style={imagepaperStyle} >
+      <Paper sx={{ width: 300, color: '#4c1034'}} className="landingimage" style={imagepaperStyle} >
         <h1>Welcome to MediaTrackerr</h1>
         <h5>We'll Help You Keep Track of All of Your Books</h5>
 

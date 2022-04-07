@@ -13,9 +13,9 @@
 
 
 .landingimage{
-  background-image: url("./brownbackground.jpg");
+  background-image: url("./solidbaige.png");
   background-position: center;
   background-size: cover;
-  color: white;
+  color: purple;
 }
 

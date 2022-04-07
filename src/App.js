@@ -9,7 +9,6 @@ function App() {
     <>
       <div className="main-welcome">
         <Container>
-          <rows>
             <div className="intro-text">
               <div>
                 <h1 className="title">Welcome to MediaTrackerr</h1>
@@ -30,7 +29,6 @@ function App() {
                 </Link>
               </div>
             </div>
-          </rows>
         </Container>
       </div>
     </>

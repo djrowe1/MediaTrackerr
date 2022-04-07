@@ -3,9 +3,12 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./App.css";
+import "./Login.css";
+
 import { Container, Grid, Paper } from "@mui/material";
 import { TextField  } from "@mui/material";
 import { Button } from "@mui/material";
+import { Link } from "react-router-dom";
 
 
 const Login = () => {
@@ -55,12 +58,20 @@ const Login = () => {
   }, [navigate]);
 
 
-  const paperStyle= {padding: 20, height: '50vh', width: 300, margin: "200px auto"}
+  const paperStyle= {padding: 20, height: '50vh', width: 300, marginTop: "200px"}
+  const imagepaperStyle= {padding: 20, height: '50vh', width: 600, marginTop: "200px"}
+
 
   return (
-    <Grid paddingTop={0} align='center' >
-      <div className="main" align='center'>
-        <Paper elevation={50} style={paperStyle}>
+    <Grid paddingTop={0} align='center'>
+      <div className="main" align='center' align-items='inline'>
+      <div className="flex">
+      <Paper className="landingimage" style={imagepaperStyle} >
+        <h1>Welcome to MediaTrackerr</h1>
+        <h5>We'll Help You Keep Track of All of Your Books</h5>
+
+      </Paper> 
+        <Paper elevation={50} style={paperStyle} >
           <Grid>
             <h2> Sign In</h2>
           </Grid>
@@ -88,12 +99,18 @@ const Login = () => {
                   fullWidth required
                 />
               </div>
-              <Button type="submit" variant="contained" padding={100}>
+              <Link to="/Register">
+                  <Button variant="contained">
+                    Register
+                  </Button>
+                </Link>
+              <Button type="submit" variant="contained">
                 Login
               </Button>
           </form>
         </Paper> 
-      </div>
+        </div>
+        </div>
     </Grid>
   );
 };

@@ -7,6 +7,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { Container, Grid, Paper } from "@mui/material";
 import { TextField  } from "@mui/material";
 import { Button } from "@mui/material";
+import "./Login.css";
+import { Link } from "react-router-dom";
 
 
 import "./Register.css";
@@ -58,13 +60,18 @@ const Register = () => {
       );
   }, [navigate]);
 
-  const paperStyle= {padding: 20, height: '50vh', width: 300, margin: "200px auto"}
+  const paperStyle= {padding: 20, height: '50vh', width: 300, marginTop: "200px"}
+  const imagepaperStyle= {padding: 20, height: '50vh', width: 600, marginTop: "200px"}
 
-  
   return (
     <Grid paddingTop={0} align='center' >
       <div className="main" align='center'>
-        <Paper elevation={50} style={paperStyle}>
+        <div className="flex">
+        <Paper className="landingimage" style={imagepaperStyle} >
+          <h1>Welcome to MediaTrackerr</h1>
+          <h5>We'll Help You Keep Track of All of Your Books</h5>
+        </Paper> 
+        <Paper elevation={50} style={paperStyle} >
           <Grid>
             <h2> Sign In</h2>
           </Grid>
@@ -77,8 +84,7 @@ const Register = () => {
                   className="form-control"
                   id="firstName"
                   aria-describedby="emailHelp"
-                  placeholder="First Name"
-                  fullWidth required
+                  placeholder="Enter First Name"
                 />
               </div>
               <div className="form-group">
@@ -89,8 +95,7 @@ const Register = () => {
                   className="form-control"
                   id="lastName"
                   aria-describedby="emailHelp"
-                  placeholder="Last Name"
-                  fullWidth required
+                  placeholder="Enter Last Name"
                 />
               </div>
               <div className="form-group">
@@ -101,8 +106,7 @@ const Register = () => {
                   className="form-control"
                   id="username"
                   aria-describedby="emailHelp"
-                  placeholder="User Name"
-                  fullWidth required
+                  placeholder="Enter User Name"
                 />
               </div>
               <div className="form-group">
@@ -113,8 +117,7 @@ const Register = () => {
                   className="form-control"
                   id="email"
                   aria-describedby="emailHelp"
-                  placeholder="Email Address"
-                  fullWidth required
+                  placeholder="Enter email"
                 />
               </div>
               <div className="form-group">
@@ -125,14 +128,19 @@ const Register = () => {
                   className="form-control"
                   id="password"
                   placeholder="Password"
-                  fullWidth required
                 />
               </div>
-              <Button type="submit" variant="contained" padding={100}>
+              <Link to="/Login">
+                  <Button variant="contained">
+                    Login
+                  </Button>
+                </Link>
+              <Button type="submit" variant="contained">
                 Register
               </Button>
           </form>
-        </Paper> 
+          </Paper> 
+        </div>
       </div>
     </Grid>
   );

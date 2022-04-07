@@ -9,6 +9,7 @@ import { TextField  } from "@mui/material";
 import { Button } from "@mui/material";
 import "./Login.css";
 import { Link } from "react-router-dom";
+import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 
 import "./Register.css";
@@ -63,11 +64,26 @@ const Register = () => {
   const paperStyle= {padding: 20, height: '50vh', width: 300, marginTop: "200px"}
   const imagepaperStyle= {padding: 20, height: '50vh', width: 600, marginTop: "200px"}
 
+
+  const browntheme = createTheme({
+    palette: {
+      primary: {
+        // Purple and green play nicely together.
+        main: '#d39b74',
+      },
+      secondary: {
+        // This is green.A700 as hex.
+        main: '#3c1e31',
+      },
+    },
+  });
+
+
   return (
     <Grid paddingTop={0} align='center' >
       <div className="main" align='center'>
         <div className="flex">
-        <Paper className="landingimage" style={imagepaperStyle} >
+        <Paper sx={{ width: 300, color: 'white'}} className="landingimage" style={imagepaperStyle} >
           <h1>Welcome to MediaTrackerr</h1>
           <h5>We'll Help You Keep Track of All of Your Books</h5>
         </Paper> 
@@ -85,6 +101,7 @@ const Register = () => {
                   id="firstName"
                   aria-describedby="emailHelp"
                   placeholder="Enter First Name"
+                  fullWidth required
                 />
               </div>
               <div className="form-group">
@@ -96,6 +113,7 @@ const Register = () => {
                   id="lastName"
                   aria-describedby="emailHelp"
                   placeholder="Enter Last Name"
+                  fullWidth required
                 />
               </div>
               <div className="form-group">
@@ -107,6 +125,7 @@ const Register = () => {
                   id="username"
                   aria-describedby="emailHelp"
                   placeholder="Enter User Name"
+                  fullWidth required
                 />
               </div>
               <div className="form-group">
@@ -118,6 +137,7 @@ const Register = () => {
                   id="email"
                   aria-describedby="emailHelp"
                   placeholder="Enter email"
+                  fullWidth required
                 />
               </div>
               <div className="form-group">
@@ -128,16 +148,21 @@ const Register = () => {
                   className="form-control"
                   id="password"
                   placeholder="Password"
+                  fullWidth required
                 />
               </div>
               <Link to="/Login">
-                  <Button variant="contained">
+                <ThemeProvider theme={browntheme}>
+                  <Button color="secondary" variant="contained" sx={{ margin: 1}}>
                     Login
                   </Button>
-                </Link>
-              <Button type="submit" variant="contained">
-                Register
-              </Button>
+                </ThemeProvider>
+              </Link>
+              <ThemeProvider theme={browntheme}>
+                <Button color="secondary"type="submit" variant="contained" sx={{ margin: 1}}>
+                  Register
+                </Button>
+              </ThemeProvider>
           </form>
           </Paper> 
         </div>

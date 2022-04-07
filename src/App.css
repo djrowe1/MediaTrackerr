@@ -8,24 +8,47 @@
 .intro-text {
   width: 100%;
   text-align: center;
+  color: white;
 }
 
 .main-welcome {
   min-height: 100vh;
   display: flex;
   align-items: center;
-  background-image: url("./rainbowbg.png");
+  background-image: url("./brownbackground.jpg");
   background-position: center;
   background-size: cover;
+  color: white;
 }
 
 .main {
   min-height: 100vh;
   display: flex;
   align-items: flex-start;
-  background-image: url("./rainbowbg.png");
+  background-image: url("./brownbackground.jpg");
   background-position: center;
   background-size: cover;
+  color: white;
+}
+
+.main-black {
+  min-height: 100vh;
+  display: flex;
+  align-items: flex-start;
+  background-image: url("./brownbackground.jpg");
+  background-position: center;
+  background-size: cover;
+  color: black;
+}
+
+.main-library {
+  min-height: 100vh;
+  display: flex;
+  align-items: flex-start;
+  background-image: url("./brownbackground.jpg");
+  background-position: center;
+  background-size: cover;
+  color: white;
 }
 .buttonContainer {
   margin-top: 50px;
@@ -84,7 +107,7 @@
 }
 
 .App {
-  background-color: #AEC6CF;
+  background-color: #d39b74;
 }
 
 .App-link {

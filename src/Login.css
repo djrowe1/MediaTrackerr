@@ -7,11 +7,15 @@
   display: flex;
   margin-left:auto;
   margin-right:auto;
+  color: white;
+
 }
 
 
 .landingimage{
-  background-image: url("./rainbowbg.png");
+  background-image: url("./brownbackground.jpg");
   background-position: center;
   background-size: cover;
+  color: white;
 }
+

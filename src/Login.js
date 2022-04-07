@@ -9,7 +9,7 @@ import { Container, Grid, Paper } from "@mui/material";
 import { TextField  } from "@mui/material";
 import { Button } from "@mui/material";
 import { Link } from "react-router-dom";
-
+import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 const Login = () => {
   const navigate = useNavigate();
@@ -61,17 +61,31 @@ const Login = () => {
   const paperStyle= {padding: 20, height: '50vh', width: 300, marginTop: "200px"}
   const imagepaperStyle= {padding: 20, height: '50vh', width: 600, marginTop: "200px"}
 
+  const nounderline= {textdecoration: "false"}
+
+  const browntheme = createTheme({
+    palette: {
+      primary: {
+        // Purple and green play nicely together.
+        main: '#d39b74',
+      },
+      secondary: {
+        // This is green.A700 as hex.
+        main: '#3c1e31',
+      },
+    },
+  });
 
   return (
     <Grid paddingTop={0} align='center'>
-      <div className="main" align='center' align-items='inline'>
+      <div className="main-library" align='center' align-items='inline'>
       <div className="flex">
-      <Paper className="landingimage" style={imagepaperStyle} >
+      <Paper sx={{ width: 300, color: 'white'}} className="landingimage" style={imagepaperStyle} >
         <h1>Welcome to MediaTrackerr</h1>
         <h5>We'll Help You Keep Track of All of Your Books</h5>
 
       </Paper> 
-        <Paper elevation={50} style={paperStyle} >
+        <Paper elevation={50} color="blue" style={paperStyle} >
           <Grid>
             <h2> Sign In</h2>
           </Grid>
@@ -99,14 +113,20 @@ const Login = () => {
                   fullWidth required
                 />
               </div>
+              <div className="buttons">
               <Link to="/Register">
-                  <Button variant="contained">
+                <ThemeProvider theme={browntheme}>
+                  <Button color="secondary" variant="contained"  sx={{ margin: 1}}>
                     Register
                   </Button>
-                </Link>
-              <Button type="submit" variant="contained">
-                Login
-              </Button>
+                </ThemeProvider>
+              </Link>
+              <ThemeProvider theme={browntheme}>
+                <Button color="secondary"type="submit" variant="contained" sx={{ margin: 1}}>
+                  Login
+                </Button>
+              </ThemeProvider>
+              </div>
           </form>
         </Paper> 
         </div>

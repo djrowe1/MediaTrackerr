@@ -17,3 +17,7 @@
     position: absolute;
     bottom: 0;
   }
+
+  .padded {
+    padding-bottom: 10%;
+  }

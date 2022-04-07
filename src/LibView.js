@@ -29,6 +29,14 @@ import ImageListItemBar from '@mui/material/ImageListItemBar';
 import IconButton from '@mui/material/IconButton';
 import InfoIcon from '@mui/icons-material/Info';
 
+
+import Card from '@mui/material/Card';
+import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+
+import Typography from '@mui/material/Typography';
+
 const Home = () => {
   const navigate = useNavigate();
   const [username, setUsername] = useState(null);
@@ -184,31 +192,41 @@ const Home = () => {
 
 
 
-        <ImageList sx={{ width: 1300, height: 650 }} cols={8} rowHeight={240}>
+        <ImageList sx={{ padding: 4, paddingTop: 0}} cols={7} rowHeight={250}>
             {/*<ListView />*/}
             {books.map((book) => (
-              <Paper key={book.title} component="div"  >
-                <ImageListItem>
-                  {
+              <Card key={book.title} component="div" sx={{ paddingTop: 1 }} >
+                <CardMedia onClick={() => {
+                      handleClickOpen(book);
+                    }}>
                     <img
                       src={book.imageLinks[0].smallThumbnail}
-                      width="40"
-                      height="60"
+                      width="180"
+                      height="260"
                       loading="lazy"
                     ></img>
-                  }
-                </ImageListItem>
-                <ListItemButton>
-                  <ListItemText
-                    primary={`${book.title}`}
-                    onClick={() => {
+
+                </CardMedia>
+                <CardContent>
+                  <div className="padded">
+                  <Button variant="contained" color="error" size="small" onClick={() => handleClick(book)}>Remove
+                  </Button>
+                  <Button variant="contained" size="small" onClick={() => handleClickOpen(book)}>View
+                  </Button>
+                  </div>
+                <Typography gutterBottom variant="p" component="div" onClick={() => {
                       handleClickOpen(book);
-                    }}
-                  />
-                </ListItemButton>
-                <Button variant="contained" color="error" size="small" onClick={() => handleClick(book)}>Delete
-                </Button>
-              </Paper>
+                    }}>
+                  {`${book.title}`}
+                </Typography>
+                <Typography variant="body2" color="text.secondary" onClick={() => {
+                      handleClickOpen(book);
+                    }}>
+                {`${book.authors}`}
+                </Typography>
+                
+              </CardContent>
+              </Card>
             ))}
         </ImageList>
 

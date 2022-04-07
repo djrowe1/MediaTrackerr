@@ -1,5 +1,4 @@
 import * as React from "react";
-import { Grid } from "@mui/material";
 import { Navigate, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { useEffect } from "react";
@@ -21,6 +20,14 @@ import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import SearchIcon from '@mui/icons-material/Search';
 import InputAdornment from '@mui/material/InputAdornment';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { Container, Grid, Paper } from "@mui/material";
+
+import ImageList from '@mui/material/ImageList';
+import ImageListItem from '@mui/material/ImageListItem';
+import ImageListItemBar from '@mui/material/ImageListItemBar';
+import IconButton from '@mui/material/IconButton';
+import InfoIcon from '@mui/icons-material/Info';
 
 const Home = () => {
   const navigate = useNavigate();
@@ -123,6 +130,22 @@ const Home = () => {
     //console.log(username);      
   };
 
+  const browntheme = createTheme({
+    palette: {
+      primary: {
+        // Purple and green play nicely together.
+        main: '#d39b74',
+      },
+      secondary: {
+        // This is green.A700 as hex.
+        main: '#3c1e31',
+      },
+    },
+  });
+
+  const paperStyle= {padding: 10, height: 100, width: 200}
+
+
   return (
     <div className="main-black">
       {/* Using grid to position elements */}
@@ -158,20 +181,23 @@ const Home = () => {
         placeholder="filter..." name="filter" 
         onKeyUp={e => searchBooks(e.target.value)}
         />
-        <Grid item style={{ border: "0.2px solid grey"}}>
-            
+
+
+
+        <ImageList sx={{ width: 1300, height: 650 }} cols={8} rowHeight={240}>
             {/*<ListView />*/}
             {books.map((book) => (
-              <ListItem key={book.title} component="div">
-                <ListItemIcon>
+              <Paper key={book.title} component="div"  >
+                <ImageListItem>
                   {
                     <img
                       src={book.imageLinks[0].smallThumbnail}
                       width="40"
                       height="60"
+                      loading="lazy"
                     ></img>
                   }
-                </ListItemIcon>
+                </ImageListItem>
                 <ListItemButton>
                   <ListItemText
                     primary={`${book.title}`}
@@ -182,9 +208,13 @@ const Home = () => {
                 </ListItemButton>
                 <Button variant="contained" color="error" size="small" onClick={() => handleClick(book)}>Delete
                 </Button>
-              </ListItem>
+              </Paper>
             ))}
-        </Grid>
+        </ImageList>
+
+
+
+
         </div>
         <Grid item>
           <p></p>

@@ -5,3 +5,15 @@
 .whitetext{
     color: white;
 }
+.flex {
+    display: flex;
+    margin-left:auto;
+    margin-right:auto;
+    color: white;
+  
+  }
+
+  .below {
+    position: absolute;
+    bottom: 0;
+  }

@@ -3,6 +3,13 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./App.css";
+import "./Login.css";
+
+import { Container, Grid, Paper } from "@mui/material";
+import { TextField  } from "@mui/material";
+import { Button } from "@mui/material";
+import { Link } from "react-router-dom";
+import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 const Login = () => {
   const navigate = useNavigate();
@@ -50,48 +57,81 @@ const Login = () => {
       .then((data) => (data.isLoggedIn ? navigate("/LibView") : null));
   }, [navigate]);
 
+
+  const paperStyle= {padding: 20, height: '50vh', width: 300, marginTop: "200px"}
+  const imagepaperStyle= {padding: 20, height: '50vh', width: 600, marginTop: "200px"}
+
+  const nounderline= {textdecoration: "false"}
+
+  const browntheme = createTheme({
+    palette: {
+      primary: {
+        // Purple and green play nicely together.
+        main: '#d39b74',
+      },
+      secondary: {
+        // This is green.A700 as hex.
+        main: '#3c1e31',
+      },
+    },
+  });
+
   return (
-    <div className="main">
-    <div className="paddedtitle">
-    <div className="row container-height">
-      <div className="col-lg-6 col-md-6 m-auto">
-        <div className="container">
-          <h1 className="text-center">Login</h1>
+    <Grid paddingTop={0} align='center'>
+      <div className="main-library" align='center' align-items='inline'>
+      <div className="flex">
+      <Paper sx={{ width: 300, color: 'white'}} className="landingimage" style={imagepaperStyle} >
+        <h1>Welcome to MediaTrackerr</h1>
+        <h5>We'll Help You Keep Track of All of Your Books</h5>
+
+      </Paper> 
+        <Paper elevation={50} color="blue" style={paperStyle} >
+          <Grid>
+            <h2> Sign In</h2>
+          </Grid>
           <form onSubmit={handleSubmit}>
-            <fieldset>
               <div className="form-group">
-                <label htmlFor="exampleInputEmail1">User Name: </label>
-                <input
+                <TextField
                   value={username}
                   onChange={(e) => setusername(e.target.value)}
                   type="text"
                   className="form-control"
                   id="username"
                   aria-describedby="emailHelp"
-                  placeholder="Enter User Name"
+                  placeholder="User Name"
+                  fullWidth required
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="exampleInputPassword1">Password: </label>
-                <input
+                <TextField
                   value={password}
                   onChange={(e) => setpassword(e.target.value)}
                   type="password"
                   className="form-control"
                   id="exampleInputPassword1"
                   placeholder="Password"
+                  fullWidth required
                 />
               </div>
-              <button type="submit" className="btn btn-info m-auto">
-                Login
-              </button>
-            </fieldset>
+              <div className="buttons">
+              <Link to="/Register">
+                <ThemeProvider theme={browntheme}>
+                  <Button color="secondary" variant="contained"  sx={{ margin: 1}}>
+                    Register
+                  </Button>
+                </ThemeProvider>
+              </Link>
+              <ThemeProvider theme={browntheme}>
+                <Button color="secondary"type="submit" variant="contained" sx={{ margin: 1}}>
+                  Login
+                </Button>
+              </ThemeProvider>
+              </div>
           </form>
+        </Paper> 
         </div>
-      </div>
-    </div>
-    </div>
-    </div>
+        </div>
+    </Grid>
   );
 };
 

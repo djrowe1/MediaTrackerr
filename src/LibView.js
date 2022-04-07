@@ -19,6 +19,8 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
+import SearchIcon from '@mui/icons-material/Search';
+import InputAdornment from '@mui/material/InputAdornment';
 
 const Home = () => {
   const navigate = useNavigate();
@@ -122,7 +124,7 @@ const Home = () => {
   };
 
   return (
-    <div className="main">
+    <div className="main-black">
       {/* Using grid to position elements */}
       <Grid
         container
@@ -140,9 +142,22 @@ const Home = () => {
             </Button>
           </div>
         </div>
-        <h2>Media Book List</h2>
+        <h2 className="whitetext">Media Book List</h2>
         <div className="App">
-          <input style={{"textAlign":"center"}} placeholder="filter..." name="filter" onKeyUp={e => searchBooks(e.target.value)} />
+        <TextField
+        id="input-with-icon-textfield"
+        InputProps={{
+          startAdornment: (
+            <InputAdornment position="start">
+              <SearchIcon/>
+            </InputAdornment>
+          ),
+        }}
+        variant="standard"
+        style={{"textAlign":"center"}} 
+        placeholder="filter..." name="filter" 
+        onKeyUp={e => searchBooks(e.target.value)}
+        />
         <Grid item style={{ border: "0.2px solid grey"}}>
             
             {/*<ListView />*/}

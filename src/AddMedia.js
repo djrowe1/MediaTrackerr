@@ -99,7 +99,7 @@ function AddMedia() {
     <div className="main">
       <div className="paddedtitle">
       <div>
-        <h1>MediaTrackerr - AddMedia</h1>
+        <h1>MediaTrackerr - Add Media</h1>
       </div>
       <div className="container">
         <form onSubmit={handleSubmit}>

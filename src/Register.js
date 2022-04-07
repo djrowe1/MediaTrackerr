@@ -4,6 +4,14 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { Container, Grid, Paper } from "@mui/material";
+import { TextField  } from "@mui/material";
+import { Button } from "@mui/material";
+import "./Login.css";
+import { Link } from "react-router-dom";
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+
+
 import "./Register.css";
 
 const Register = () => {
@@ -53,19 +61,39 @@ const Register = () => {
       );
   }, [navigate]);
 
-  return (
-    <div className="main">
-    <div className="paddedtitle">
-    <div className="row container-height">
-      <div className="col-lg-6 col-md-6 m-auto">
-        <div className="container">
-          <h1 className="text-center">MediaTrackerr - Register</h1>
+  const paperStyle= {padding: 20, height: '50vh', width: 300, marginTop: "200px"}
+  const imagepaperStyle= {padding: 20, height: '50vh', width: 600, marginTop: "200px"}
 
+
+  const browntheme = createTheme({
+    palette: {
+      primary: {
+        // Purple and green play nicely together.
+        main: '#d39b74',
+      },
+      secondary: {
+        // This is green.A700 as hex.
+        main: '#3c1e31',
+      },
+    },
+  });
+
+
+  return (
+    <Grid paddingTop={0} align='center' >
+      <div className="main" align='center'>
+        <div className="flex">
+        <Paper sx={{ width: 300, color: 'white'}} className="landingimage" style={imagepaperStyle} >
+          <h1>Welcome to MediaTrackerr</h1>
+          <h5>We'll Help You Keep Track of All of Your Books</h5>
+        </Paper> 
+        <Paper elevation={50} style={paperStyle} >
+          <Grid>
+            <h2> Sign In</h2>
+          </Grid>
           <form onSubmit={handleSubmit}>
-            <fieldset>
               <div className="form-group">
-                <label htmlFor="firstName">First Name: </label>
-                <input
+                <TextField
                   value={first_name}
                   onChange={(e) => setfirst_name(e.target.value)}
                   type="text"
@@ -73,11 +101,11 @@ const Register = () => {
                   id="firstName"
                   aria-describedby="emailHelp"
                   placeholder="Enter First Name"
+                  fullWidth required
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="lastName">Last Name: </label>
-                <input
+                <TextField
                   value={last_name}
                   onChange={(e) => setlast_name(e.target.value)}
                   type="text"
@@ -85,11 +113,11 @@ const Register = () => {
                   id="lastName"
                   aria-describedby="emailHelp"
                   placeholder="Enter Last Name"
+                  fullWidth required
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="username">User Name: </label>
-                <input
+                <TextField
                   value={username}
                   onChange={(e) => setuser_name(e.target.value)}
                   type="text"
@@ -97,11 +125,11 @@ const Register = () => {
                   id="username"
                   aria-describedby="emailHelp"
                   placeholder="Enter User Name"
+                  fullWidth required
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="exampleInputEmail1">Email Addr: </label>
-                <input
+                <TextField
                   value={email}
                   onChange={(e) => setemail(e.target.value)}
                   type="email"
@@ -109,29 +137,37 @@ const Register = () => {
                   id="email"
                   aria-describedby="emailHelp"
                   placeholder="Enter email"
+                  fullWidth required
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="exampleInputPassword1">Password: </label>
-                <input
+                <TextField
                   value={password}
                   onChange={(e) => setpassword(e.target.value)}
                   type="password"
                   className="form-control"
                   id="password"
                   placeholder="Password"
+                  fullWidth required
                 />
               </div>
-              <button type="submit" className="btn btn-info m-auto">
-                Register
-              </button>
-            </fieldset>
+              <Link to="/Login">
+                <ThemeProvider theme={browntheme}>
+                  <Button color="secondary" variant="contained" sx={{ margin: 1}}>
+                    Login
+                  </Button>
+                </ThemeProvider>
+              </Link>
+              <ThemeProvider theme={browntheme}>
+                <Button color="secondary"type="submit" variant="contained" sx={{ margin: 1}}>
+                  Register
+                </Button>
+              </ThemeProvider>
           </form>
+          </Paper> 
         </div>
       </div>
-    </div>
-    </div>
-    </div>
+    </Grid>
   );
 };
 

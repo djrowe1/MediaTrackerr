@@ -3,3 +3,19 @@
   flex-direction: column;
 }
 
+.flex {
+  display: flex;
+  margin-left:auto;
+  margin-right:auto;
+  color: white;
+
+}
+
+
+.landingimage{
+  background-image: url("./brownbackground.jpg");
+  background-position: center;
+  background-size: cover;
+  color: white;
+}
+

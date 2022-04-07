@@ -1,6 +1,6 @@
-4/06/22 - Daniel has enhanced both the performance and appearance of our library view list along with the addition of a book search filter feature that will users search a quickly find a book within their existing inventory, this feature will be especially helpful when the list becomes long.
+4/06/22 - Daniel has enhanced both the performance and appearance of our library view list along with the addition of a book search filter feature that will allow users to search and quickly find a book within their existing inventory, this feature will be especially helpful when the list becomes long.
 
-4/05/22 - Emily has added new functionality to our with the addition delete buttons for a user's books in their library view.
+4/05/22 - Emily has added new functionality with the addition of a delete feature that allows users to remove a book from their library list.
 
 4/05/22 - Sijia and Jada pushed a much more refined and polished front-end for our app. The navi bar has been enhanced and our UI theme looks great!
 

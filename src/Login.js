@@ -3,6 +3,10 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./App.css";
+import { Container, Grid, Paper } from "@mui/material";
+import { TextField  } from "@mui/material";
+import { Button } from "@mui/material";
+
 
 const Login = () => {
   const navigate = useNavigate();
@@ -50,48 +54,47 @@ const Login = () => {
       .then((data) => (data.isLoggedIn ? navigate("/LibView") : null));
   }, [navigate]);
 
+
+  const paperStyle= {padding: 20, height: '50vh', width: 300, margin: "200px auto"}
+
   return (
-    <div className="main">
-    <div className="paddedtitle">
-    <div className="row container-height">
-      <div className="col-lg-6 col-md-6 m-auto">
-        <div className="container">
-          <h1 className="text-center">Login</h1>
+    <Grid paddingTop={0} align='center' >
+      <div className="main" align='center'>
+        <Paper elevation={50} style={paperStyle}>
+          <Grid>
+            <h2> Sign In</h2>
+          </Grid>
           <form onSubmit={handleSubmit}>
-            <fieldset>
               <div className="form-group">
-                <label htmlFor="exampleInputEmail1">User Name: </label>
-                <input
+                <TextField
                   value={username}
                   onChange={(e) => setusername(e.target.value)}
                   type="text"
                   className="form-control"
                   id="username"
                   aria-describedby="emailHelp"
-                  placeholder="Enter User Name"
+                  placeholder="User Name"
+                  fullWidth required
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="exampleInputPassword1">Password: </label>
-                <input
+                <TextField
                   value={password}
                   onChange={(e) => setpassword(e.target.value)}
                   type="password"
                   className="form-control"
                   id="exampleInputPassword1"
                   placeholder="Password"
+                  fullWidth required
                 />
               </div>
-              <button type="submit" className="btn btn-info m-auto">
+              <Button type="submit" variant="contained" padding={100}>
                 Login
-              </button>
-            </fieldset>
+              </Button>
           </form>
-        </div>
+        </Paper> 
       </div>
-    </div>
-    </div>
-    </div>
+    </Grid>
   );
 };
 

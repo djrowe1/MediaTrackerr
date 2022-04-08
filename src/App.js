@@ -13,7 +13,7 @@ function App() {
               <div>
                 <h1 className="title">Welcome to MediaTrackerr</h1>
                 <p className="subtitle">
-                  We'll Help You Keep Track of All of Your Books.
+                  Your Media, Managed Easily.
                 </p>
               </div>
               <div className="buttonContainer">

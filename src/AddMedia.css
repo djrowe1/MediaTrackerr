@@ -1,8 +1,29 @@
-.setup {
-    
-  }
-
 .paddedtitle{
-    padding-top: 20px;
-    align-items: start
+  padding-top: 20px;
+}
+
+.whitetext{
+  color: white;
+}
+.flex {
+  display: flex;
+  margin-left:auto;
+  margin-right:auto;
+  color: white;
+
+}
+
+.below {
+  position: absolute;
+  bottom: 0;
+}
+
+.padded {
+  padding-bottom: 10%;
+}
+
+.center p {
+  text-align:center;
+  margin:0 auto;
+  display: inline-block;
 }

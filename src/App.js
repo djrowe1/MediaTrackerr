@@ -13,17 +13,27 @@ function App() {
               <div>
                 <h1 className="title">Welcome to MediaTrackerr</h1>
                 <p className="subtitle">
-                  Your Media, Managed Easily.
+                  <em>Your Media, Managed Easily.</em>
                 </p>
               </div>
               <div className="buttonContainer">
                 <Link to="/Login">
-                  <Button variant="contained" className="landingbutton">
+                  <Button 
+                    style={{
+                      backgroundColor: "#D2B48C",
+                    }}
+                    variant="contained" className="landingbutton"
+                  >
                     Login
                   </Button>
                 </Link>
                 <Link to="/Register">
-                  <Button variant="contained" className="landingbutton">
+                  <Button 
+                    style={{
+                      backgroundColor: "#A15440",
+                    }}
+                    variant="contained" className="landingbutton"
+                  >
                     Register
                   </Button>
                 </Link>

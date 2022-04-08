@@ -159,7 +159,7 @@ function AddMedia() {
       <div className="paddedtitle">
         <div className="center">
           <h1 className="whitetext">Add Media</h1>
-          <p className="whitetext">Click a card below to add book to library. </p>
+          <p className="whitetext">Click a card below to add a book to your library. </p>
         </div>
         <div className="container">
           <form onSubmit={handleSubmit}>
@@ -183,7 +183,11 @@ function AddMedia() {
                 autoComplete="off"
               />
             </div>
-            <Button variant="contained" size="small" type="submit" className="button">
+            <Button 
+              style={{
+                backgroundColor: "#D2B48C",
+              }}
+              variant="contained" size="small" type="submit" className="button">
               Search
             </Button>
             <p></p>

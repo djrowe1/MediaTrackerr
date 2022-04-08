@@ -28,6 +28,8 @@ import ImageListItem from '@mui/material/ImageListItem';
 import ImageListItemBar from '@mui/material/ImageListItemBar';
 import IconButton from '@mui/material/IconButton';
 import InfoIcon from '@mui/icons-material/Info';
+import DeleteIcon from '@mui/icons-material/Delete';
+
 
 
 import Card from '@mui/material/Card';
@@ -168,7 +170,12 @@ const Home = () => {
           <p></p>
           <div className="userInfo">
             {/*<h2>Welcome: {JSON.stringify(username)}</h2>*/}
-            <Button variant="contained">
+            <Button 
+              style={{
+                backgroundColor: "#4D1137",
+              }}
+              variant="contained"
+            >
               <div onClick={logout}>Logout</div>
             </Button>
           </div>
@@ -176,11 +183,12 @@ const Home = () => {
         <h2 className="whitetext">Media Book List</h2>
         <div className="App">
         <TextField
+        sx={{ input: { color: 'white' } }}
         id="input-with-icon-textfield"
         InputProps={{
           startAdornment: (
             <InputAdornment position="start">
-              <SearchIcon/>
+              <SearchIcon style={{ color: 'white' }}/>
             </InputAdornment>
           ),
         }}
@@ -209,10 +217,17 @@ const Home = () => {
                 </CardMedia>
                 <CardContent>
                   <div className="padded">
-                  <Button variant="contained" color="error" size="small" onClick={() => handleClick(book)}>Remove
+                  <Button 
+                    style={{
+                      backgroundColor: "#37082A",
+                    }}
+                    variant="contained" size="small" onClick={() => handleClickOpen(book)}>View
                   </Button>
-                  <Button variant="contained" size="small" onClick={() => handleClickOpen(book)}>View
-                  </Button>
+                  <IconButton aria-label="delete" size="large" onClick={() => handleClick(book)}>
+                    <DeleteIcon fontSize="inherit" />
+                  </IconButton>
+                  {/* <Button variant="contained" color="error" size="small" onClick={() => handleClick(book)}>Remove
+                  </Button> */}
                   </div>
                 <Typography gutterBottom variant="p" component="div" onClick={() => {
                       handleClickOpen(book);

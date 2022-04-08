@@ -84,8 +84,10 @@ const Register = () => {
       <div className="main" align='center'>
         <div className="flex">
         <Paper sx={{ width: 300, color: '#4c1034'}} className="landingimage" style={imagepaperStyle} >
-          <h1>Welcome to MediaTrackerr</h1>
-          <h5>We'll Help You Keep Track of All of Your Books</h5>
+          <div className="blacktext">
+            <h1>Welcome to MediaTrackerr</h1>
+          </div>
+          <h3><em>Your Media, Managed Easily.</em></h3>
         </Paper> 
         <Paper elevation={50} style={paperStyle} >
           <Grid>
@@ -96,6 +98,7 @@ const Register = () => {
                 <TextField
                   value={first_name}
                   onChange={(e) => setfirst_name(e.target.value)}
+                  size="small"
                   type="text"
                   className="form-control"
                   id="firstName"
@@ -108,6 +111,7 @@ const Register = () => {
                 <TextField
                   value={last_name}
                   onChange={(e) => setlast_name(e.target.value)}
+                  size="small"
                   type="text"
                   className="form-control"
                   id="lastName"
@@ -120,6 +124,7 @@ const Register = () => {
                 <TextField
                   value={username}
                   onChange={(e) => setuser_name(e.target.value)}
+                  size="small"
                   type="text"
                   className="form-control"
                   id="username"
@@ -132,6 +137,7 @@ const Register = () => {
                 <TextField
                   value={email}
                   onChange={(e) => setemail(e.target.value)}
+                  size="small"
                   type="email"
                   className="form-control"
                   id="email"
@@ -144,6 +150,7 @@ const Register = () => {
                 <TextField
                   value={password}
                   onChange={(e) => setpassword(e.target.value)}
+                  size="small"
                   type="password"
                   className="form-control"
                   id="password"
@@ -153,13 +160,21 @@ const Register = () => {
               </div>
               <Link to="/Login">
                 <ThemeProvider theme={browntheme}>
-                  <Button color="secondary" variant="contained" sx={{ margin: 1}}>
+                  <Button 
+                  style={{
+                    backgroundColor: "#4D1137",
+                  }}
+                  color="secondary" variant="contained" sx={{ margin: 1}}>
                     Login
                   </Button>
                 </ThemeProvider>
               </Link>
               <ThemeProvider theme={browntheme}>
-                <Button color="secondary"type="submit" variant="contained" sx={{ margin: 1}}>
+                <Button 
+                style={{
+                  backgroundColor: "#DBA37D",
+                }}
+                color="secondary"type="submit" variant="contained" sx={{ margin: 1}}>
                   Register
                 </Button>
               </ThemeProvider>

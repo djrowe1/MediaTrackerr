@@ -81,8 +81,10 @@ const Login = () => {
       <div className="main-library" align='center' align-items='inline'>
       <div className="flex">
       <Paper sx={{ width: 300, color: '#4c1034'}} className="landingimage" style={imagepaperStyle} >
-        <h1>Welcome to MediaTrackerr</h1>
-        <h5>We'll Help You Keep Track of All of Your Books</h5>
+        <div className="blacktext">
+          <h1>Welcome to MediaTrackerr</h1>
+        </div>
+        <h3><em>Your Media, Managed Easily.</em></h3>
 
       </Paper> 
         <Paper elevation={50} color="blue" style={paperStyle} >
@@ -116,13 +118,21 @@ const Login = () => {
               <div className="buttons">
               <Link to="/Register">
                 <ThemeProvider theme={browntheme}>
-                  <Button color="secondary" variant="contained"  sx={{ margin: 1}}>
+                  <Button 
+                  style={{
+                    backgroundColor: "#4D1137",
+                  }}
+                  color="secondary" variant="contained"  sx={{ margin: 1}}>
                     Register
                   </Button>
                 </ThemeProvider>
               </Link>
               <ThemeProvider theme={browntheme}>
-                <Button color="secondary"type="submit" variant="contained" sx={{ margin: 1}}>
+                <Button 
+                style={{
+                  backgroundColor: "#DBA37D",
+                }}
+                color="secondary"type="submit" variant="contained" sx={{ margin: 1}}>
                   Login
                 </Button>
               </ThemeProvider>

@@ -5,3 +5,8 @@
 body {
   background-color: rgb(139, 209, 230);
 }
+.blacktext h1{
+  color: rgb(0, 0, 0);
+  font-size: 50px;
+  font-weight: bold;
+}

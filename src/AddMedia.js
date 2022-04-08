@@ -158,7 +158,7 @@ function AddMedia() {
       >
       <div className="paddedtitle">
         <div className="center">
-          <h1 className="whitetext">Add Media</h1>
+          <h1 className="whitetext">Add Media to Library</h1>
           <p className="whitetext">Click a card below to add a book to your library. </p>
         </div>
         <div className="container">

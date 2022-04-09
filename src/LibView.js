@@ -180,7 +180,8 @@ const Home = () => {
             </Button>
           </div>
         </div>
-        <h2 className="whitetext">Media Book List</h2>
+        {/* <h1 className="whitetext">{username}'s Digital Library</h1> */}
+        <h1 className="whitetext">My Digital Library</h1>
         <div className="App">
         <TextField
         sx={{ input: { color: 'white' } }}

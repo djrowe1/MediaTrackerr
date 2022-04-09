@@ -145,7 +145,7 @@ const Register = () => {
                   className="form-control"
                   id="email"
                   aria-describedby="emailHelp"
-                  placeholder="Enter email"
+                  placeholder="Enter Email"
                   fullWidth required
                 />
               </div>

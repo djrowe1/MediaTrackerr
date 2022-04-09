@@ -1,3 +1,11 @@
+### MEDIATRACKERR - YOUR MEDIA, MANAGED EASILY
+
+<img src="MTvid.gif">
+
+4/08/22 - Jada has refined our main library view page and has made significant improvements to our add media page. Our product is looking more and more like a deployable product in the marketplace. Remove/delete buttons have been converted to trash can icons.
+
+4/07/22 - Sijia made significant improvements to our fronted. Forms and overall app appearance are more polished and professional looking.
+
 4/06/22 - Daniel has enhanced both the performance and appearance of our library view list along with the addition of a book search filter feature that will allow users to search and quickly find a book within their existing inventory, this feature will be especially helpful when the list becomes long.
 
 4/05/22 - Emily has added new functionality with the addition of a delete feature that allows users to remove a book from their library list.

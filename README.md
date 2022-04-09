@@ -1,8 +1,8 @@
-### MEDIATRACKERR - YOUR MEDIA, MANAGED EASILY
+# MEDIATRACKERR - YOUR MEDIA, MANAGED EASILY
 
 <img src="MTvid.gif">
 
-# MediaTracker is a web app inventory software tool for both books and readable media, for both individuals and organizations, that allows its users to easily keep track of their book and media inventory.
+## MediaTracker is a web app inventory software tool for both books and readable media, for both individuals and organizations, that allows its users to easily keep track of their book and media inventory.
 
 4/08/22 - Jada has refined our main library view page and has made significant improvements to our add media page. Our product is looking more and more like a deployable product in the marketplace. Remove/delete buttons have been converted to trash can icons.
 

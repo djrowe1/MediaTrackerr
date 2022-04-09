@@ -4,6 +4,10 @@
 
 ## MediaTracker is a web app inventory software tool for both books and readable media, for both individuals and organizations, that allows its users to easily keep track of their book and media inventory.
 
+### Team Members: David Rowe, Sijia Li, Daniel Giampaolo, Jada Allen, and Emily Arnold
+
+#### Work Flow:
+
 4/08/22 - Jada has refined our main library view page and has made significant improvements to our add media page. Our product is looking more and more like a deployable product in the marketplace. Remove/delete buttons have been converted to trash can icons.
 
 4/07/22 - Sijia made significant improvements to our fronted. Forms and overall app appearance are more polished and professional looking.

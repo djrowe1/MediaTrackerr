@@ -35,3 +35,7 @@ Known Issue: Error messages in the backend don't always propagate to the browser
 Known Issue: Sometimes during the login process, the authorization token is not stored in localStorage and the user must resubmit info to get logged in. Usually doesn't happen more than two consecutive times in a row... so you might think you mistyped your password but there's an issue. Error is very intermittent... need to investigate issue more.
 
 - Dave
+
+2/28/2022 - CIS4914 - MediaTrackerr Webapp - Added some functionality (Page Router Navigation and Add/Search media functionality via Google Books API) -NEED TO INSTALL additional dependencies: npm install axios, npm install react-router-dom. 'npm update' will bring your local version up to date.
+
+- Dave

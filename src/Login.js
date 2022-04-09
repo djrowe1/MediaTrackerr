@@ -85,14 +85,14 @@ const Login = () => {
           <h1>Welcome to MediaTrackerr</h1>
         </div>
         <h3><em>Your Media, Managed Easily.</em></h3>
-
+        <p>Don't have an account? <b><Link to="/Register">Sign Up</Link></b> now.</p>
       </Paper> 
         <Paper elevation={50} color="blue" style={paperStyle} >
           <Grid>
             <h2> Sign In</h2>
           </Grid>
           <form onSubmit={handleSubmit}>
-              <div className="form-group">
+              <div className="padded-bottom">
                 <TextField
                   value={username}
                   onChange={(e) => setusername(e.target.value)}
@@ -104,7 +104,7 @@ const Login = () => {
                   fullWidth required
                 />
               </div>
-              <div className="form-group">
+              <div className="padded-bottom">
                 <TextField
                   value={password}
                   onChange={(e) => setpassword(e.target.value)}
@@ -116,7 +116,7 @@ const Login = () => {
                 />
               </div>
               <div className="buttons">
-              <Link to="/Register">
+              {/* <Link to="/Register">
                 <ThemeProvider theme={browntheme}>
                   <Button 
                   style={{
@@ -126,11 +126,11 @@ const Login = () => {
                     Register
                   </Button>
                 </ThemeProvider>
-              </Link>
+              </Link> */}
               <ThemeProvider theme={browntheme}>
                 <Button 
                 style={{
-                  backgroundColor: "#DBA37D",
+                  backgroundColor: "#4D1137",
                 }}
                 color="secondary"type="submit" variant="contained" sx={{ margin: 1}}>
                   Login

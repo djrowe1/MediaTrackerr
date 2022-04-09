@@ -88,13 +88,16 @@ const Register = () => {
             <h1>Welcome to MediaTrackerr</h1>
           </div>
           <h3><em>Your Media, Managed Easily.</em></h3>
+          <div className="blacktext2">
+            <p>Already a member? <b><a href="/Login">Sign In</a></b>.</p>
+          </div>
         </Paper> 
         <Paper elevation={50} style={paperStyle} >
           <Grid>
-            <h2> Sign In</h2>
+            <h2> Sign Up</h2>
           </Grid>
           <form onSubmit={handleSubmit}>
-              <div className="form-group">
+              <div className="padded-bottom">
                 <TextField
                   value={first_name}
                   onChange={(e) => setfirst_name(e.target.value)}
@@ -107,7 +110,7 @@ const Register = () => {
                   fullWidth required
                 />
               </div>
-              <div className="form-group">
+              <div className="padded-bottom">
                 <TextField
                   value={last_name}
                   onChange={(e) => setlast_name(e.target.value)}
@@ -120,7 +123,7 @@ const Register = () => {
                   fullWidth required
                 />
               </div>
-              <div className="form-group">
+              <div className="padded-bottom">
                 <TextField
                   value={username}
                   onChange={(e) => setuser_name(e.target.value)}
@@ -133,7 +136,7 @@ const Register = () => {
                   fullWidth required
                 />
               </div>
-              <div className="form-group">
+              <div className="padded-bottom">
                 <TextField
                   value={email}
                   onChange={(e) => setemail(e.target.value)}
@@ -146,7 +149,7 @@ const Register = () => {
                   fullWidth required
                 />
               </div>
-              <div className="form-group">
+              <div className="padded-bottom">
                 <TextField
                   value={password}
                   onChange={(e) => setpassword(e.target.value)}
@@ -158,24 +161,24 @@ const Register = () => {
                   fullWidth required
                 />
               </div>
-              <Link to="/Login">
+              {/* <Link to="/Login">
                 <ThemeProvider theme={browntheme}>
                   <Button 
                   style={{
-                    backgroundColor: "#4D1137",
+                    backgroundColor: "#DBA37D", 
                   }}
                   color="secondary" variant="contained" sx={{ margin: 1}}>
                     Login
                   </Button>
                 </ThemeProvider>
-              </Link>
+              </Link> */}
               <ThemeProvider theme={browntheme}>
                 <Button 
                 style={{
-                  backgroundColor: "#DBA37D",
+                  backgroundColor: "#4D1137",
                 }}
                 color="secondary"type="submit" variant="contained" sx={{ margin: 1}}>
-                  Register
+                  Sign Up
                 </Button>
               </ThemeProvider>
           </form>

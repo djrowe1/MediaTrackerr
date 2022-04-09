@@ -85,7 +85,9 @@ const Login = () => {
           <h1>Welcome to MediaTrackerr</h1>
         </div>
         <h3><em>Your Media, Managed Easily.</em></h3>
-        <p>Don't have an account? <b><Link to="/Register">Sign Up</Link></b> now.</p>
+        <div className="blacktext2">
+          <p>Don't have an account? <b><a href="/Register">Sign Up</a></b> now.</p>
+        </div>
       </Paper> 
         <Paper elevation={50} color="blue" style={paperStyle} >
           <Grid>

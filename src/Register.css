@@ -10,3 +10,30 @@ body {
   font-size: 50px;
   font-weight: bold;
 }
+.blacktext2 p{
+  color: rgb(0, 0, 0);
+}
+.padded-bottom {
+  padding-bottom: 10px;
+}
+
+a:link {
+  color: black;
+  background-color: transparent;
+  text-decoration: none;
+}
+a:visited {
+  color: #4D1137;
+  background-color: transparent;
+  text-decoration: none;
+}
+a:hover {
+  color: #4D1137;
+  background-color: transparent;
+  text-decoration: underline;
+}
+a:active {
+  color: black;
+  background-color: transparent;
+  text-decoration: underline;
+}

@@ -2,7 +2,7 @@
 
 <img src="MTvid.gif">
 
-## MediaTracker is a web app inventory software tool for both books and readable media, for both individuals and organizations, that allows its users to easily keep track of their book and media inventory.
+## MediaTrackerr is a web app inventory software tool for both books and readable media, for both individuals and organizations, that allows its users to easily keep track of their book and media inventory.
 
 ### Team Members: David Rowe, Sijia Li, Daniel Giampaolo, Jada Allen, and Emily Arnold
 

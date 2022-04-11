@@ -15,7 +15,7 @@
   min-height: 100vh;
   display: flex;
   align-items: center;
-  background-image: url("./brownbackground.jpg");
+  background-image: url("./brownbackground3.jpg");
   background-position: center;
   background-size: cover;
   color: white;
@@ -25,7 +25,7 @@
   min-height: 100vh;
   display: flex;
   align-items: flex-start;
-  background-image: url("./brownbackground.jpg");
+  background-image: url("./brownbackground3.jpg");
   background-position: center;
   background-size: cover;
   color: white;
@@ -35,7 +35,7 @@
   min-height: 100vh;
   display: flex;
   align-items: flex-start;
-  background-image: url("./brownbackground.jpg");
+  background-image: url("./brownbackground3.jpg");
   background-position: center;
   background-size: cover;
   color: black;
@@ -45,7 +45,7 @@
   min-height: 100vh;
   display: flex;
   align-items: flex-start;
-  background-image: url("./brownbackground.jpg");
+  background-image: url("./brownbackground3.jpg");
   background-position: center;
   background-size: cover;
   color: white;
@@ -123,9 +123,9 @@
   }
 }
 
-.paddedtitle{
+.paddedtitle {
   padding-top: 20px;
   padding-left: 25px;
 
-  align-items: start
+  align-items: start;
 }

@@ -22,6 +22,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import InputAdornment from '@mui/material/InputAdornment';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { Container, Grid, Paper } from "@mui/material";
+import { Link } from "react-router-dom";
 
 import ImageList from '@mui/material/ImageList';
 import ImageListItem from '@mui/material/ImageListItem';
@@ -157,6 +158,19 @@ function AddMedia() {
         style={{ minHeight: "100vh" }}
       >
       <div className="paddedtitle">
+        <p></p>
+        <div className="userInfo">
+          <Link to="/LibView">
+            <Button 
+              style={{
+                backgroundColor: "#4D1137",
+              }}
+              variant="contained"
+            >
+              Back
+            </Button>
+          </Link>
+        </div>
         <div className="center">
           <h1 className="whitetext">Add Media to Library</h1>
           <p className="whitetext">Click a card below to add a book to your library. </p>

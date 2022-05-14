@@ -22,7 +22,7 @@
 
 - Dave
 
-4/02/22 - Daniel pushed new code that enhances our app's functionality such as the ability to store book data with a user and populating our library view list with the user's book inventory.
+4/02/22 - Pushed new code that enhances our app's functionality such as the ability to store book data with a user and populating our library view list with the user's book inventory.
 
 3/30/22 - User login functionality has been implemented. At this point, a user can register on our app and then log-in. So far the main 'media view' page is the only page that is restricted to authorized users... if you try to view that page without being logged-in then our program will automatically redirect to the log-in page. I have left this feature off of the other pages for now that so testing and development will be easier. Also, the 'log-in' page redirects to the 'view media' page automatically if you are logged-in.
 

@@ -4,19 +4,19 @@
 
 ## MediaTrackerr is a web app inventory software tool for both books and readable media, for both individuals and organizations, that allows its users to easily keep track of their book and media inventory.
 
-### Team Members: David Rowe, Sijia Li, Daniel Giampaolo, Jada Allen, and Emily Arnold
+### Team Members: David Rowe (Project Lead/Developer), Sijia Li (Scrum Master/Developer), Daniel Giampaolo (Developer), Jada Allen (Developer), and Emily Arnold (Developer)
 
 #### Work Flow:
 
-4/08/22 - Jada has refined our main library view page and has made significant improvements to our add media page. Our product is looking more and more like a deployable product in the marketplace. Remove/delete buttons have been converted to trash can icons.
+4/08/22 - Refined our main library view page and has made significant improvements to our add media page. Our product is looking more and more like a deployable product in the marketplace. Remove/delete buttons have been converted to trash can icons.
 
-4/07/22 - Sijia made significant improvements to our frontend. Forms and overall app appearance are more polished and professional looking.
+4/07/22 - Significant improvements made to our frontend. Forms and overall app appearance are more polished and professional looking.
 
-4/06/22 - Daniel has enhanced both the performance and appearance of our library view list along with the addition of a book search filter feature that will allow users to search and quickly find a book within their existing inventory, this feature will be especially helpful when the list becomes long.
+4/06/22 - Enhanced both the performance and appearance of our library view list along with the addition of a book search filter feature that will allow users to search and quickly find a book within their existing inventory, this feature will be especially helpful when the list becomes long.
 
-4/05/22 - Emily has added new functionality with the addition of a delete feature that allows users to remove a book from their library list.
+4/05/22 - Added new functionality with the addition of a delete feature that allows users to remove a book from their library list.
 
-4/05/22 - Sijia and Jada pushed a much more refined and polished front-end for our app. The navi bar has been enhanced and our UI theme looks great!
+4/05/22 - Added a much more refined and polished front-end for our app. The navi bar has been enhanced and our UI theme looks great!
 
 4/04/22 - Our login bug issue has been resolved... :) The user's token was not always being stored in the browser's local storage because 'unwanted' events were taking place during the "onSubmit" function execution. Implementing the e.preventDefault() function in our log-in code resolved the issue. See this resource for a full explanation of how preventDefault() works with our code: https://sebhastian.com/react-preventdefault/
 
